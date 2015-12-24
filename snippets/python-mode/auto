@@ -1,0 +1,5 @@
+# name: autoreload for ipython
+# key: auto
+# --
+%load_ext autoreload
+%autoreload 2
