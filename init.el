@@ -97,7 +97,6 @@
       (global-set-key [H-down]			'windmove-down)                 ;; move to lower window
       ;; other key bindings
       (global-set-key (kbd "H-M-s")	'magit-status)          ;; git status
-      (global-set-key (kbd "H-f")	'follow-mode)           ;; bind scrolling of vertical windows of the same buffer
       (global-set-key (kbd "H-M-o")	'projectile-find-file)  ;; open file in projectile mode
       (global-set-key (kbd "H-M-t")	'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-a")	'mark-whole-buffer)     ;; select all
@@ -138,6 +137,9 @@
 
 ;; org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+;; cron mode
+(add-to-list 'auto-mode-alist '("\\.cron$" . crontab-mode))
 
 ;; octave/matlab
 (autoload 'octave-mode "octave-mod" nil t)
