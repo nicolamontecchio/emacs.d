@@ -46,6 +46,7 @@
 (depends-on "protobuf-mode")
 (depends-on "racer")
 (depends-on "racket-mode")
+(depends-on "reykjavik-theme")
 (depends-on "rust-mode")
 (depends-on "sbt-mode")
 (depends-on "scala-mode2")
