@@ -20,6 +20,7 @@
 (depends-on "el-get")
 (depends-on "ensime")
 (depends-on "espresso-theme")
+(depends-on "ess")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")

@@ -220,6 +220,9 @@
 (server-start)
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
+;; julia
+(setq inferior-julia-program-name "~/bin/julia")
+
 ;; miscellanea
 (setq tramp-use-ssh-controlmaster-options nil)							;; fix tramp without breaking ghc-mod
 (put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))	;; tramp path
