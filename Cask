@@ -39,6 +39,7 @@
 (depends-on "julia-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "material-theme")
 (depends-on "multiple-cursors")
 (depends-on "pallet")
 (depends-on "paredit")

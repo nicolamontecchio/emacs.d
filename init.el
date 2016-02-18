@@ -69,7 +69,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '(atom-dark reykjavik heroku greymatters))
+(setq pretty-themes '(atom-dark material heroku greymatters))
 (defadvice load-theme
   (before theme-dont-propagate activate)
   (mapcar #'disable-theme custom-enabled-themes))
