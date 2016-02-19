@@ -41,6 +41,7 @@
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)                 ;; switch on-off word wrap
 (global-set-key (kbd "C-M-t")   'hs-toggle-hiding)                      ;; hide/show block
 (global-set-key (kbd "M-x")     'smex)                                  ;; nicer M-x
+(global-set-key (kbd "C-z")     'nop)                                   ;; do nothing (prevent minimize to dock)
 
 ;; multiple cursors key bindings
 (global-set-key (kbd "C->")		'mc/mark-next-like-this)
@@ -69,7 +70,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '(atom-dark material heroku greymatters))
+(setq pretty-themes '( material atom-dark heroku greymatters ))
 (defadvice load-theme
   (before theme-dont-propagate activate)
   (mapcar #'disable-theme custom-enabled-themes))
@@ -161,6 +162,7 @@
 (add-hook 'clojure-mode-hook                      'company-mode)
 (add-hook 'scheme-mode-hook                      'hs-minor-mode)
 (setq scheme-program-name "/usr/local/bin/guile")
+
 
 ;; javascript
 (setq js-indent-level 2)
