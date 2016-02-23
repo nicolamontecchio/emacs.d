@@ -7,6 +7,10 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 
+;; add ~/bin
+(add-to-list 'load-path "~/bin")
+
+
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
 (tool-bar-mode -1)                                              ;; no toolbar
