@@ -35,6 +35,7 @@
 (depends-on "markdown-mode")
 (depends-on "material-theme")
 (depends-on "multiple-cursors")
+(depends-on "neotree")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "powerline")

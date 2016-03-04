@@ -30,22 +30,22 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
 
 ;; GLOBAL KEY BINDINGS
-(global-set-key (kbd "C-M-/")   'toggle-comment-region)                 ;; comment code - custom function below
-(global-set-key (kbd "C-M-j")	'direx-project:jump-to-project-root)    ;; tree view of project directory
-(global-set-key (kbd "M-k")     'kill-this-buffer)                      ;; kill current buffer
-(global-set-key (kbd "C-M-i")   'company-complete)                      ;; autocomplete w/ company mode
+(global-set-key (kbd "C-M-/")   'toggle-comment-region) ;; comment code - custom function below
+(global-set-key (kbd "C-M-j")	'neotree-toggle)        ;; tree view of project directory
+(global-set-key (kbd "M-k")     'kill-this-buffer)      ;; kill current buffer
+(global-set-key (kbd "C-M-i")   'company-complete)      ;; autocomplete w/ company mode
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
-(global-set-key (kbd "C-x o")   'switch-window)                         ;; for when there are more than 2 windows
-(global-set-key (kbd "C-=")     'er/expand-region)                      ;; expand region
+(global-set-key (kbd "C-x o")   'switch-window)         ;; for when there are more than 2 windows
+(global-set-key (kbd "C-=")     'er/expand-region)      ;; expand region
 
-(global-set-key (kbd "M-j")	'avy-goto-word-1)                       ;; avy-jump (on word)
-(global-set-key (kbd "M-[")	'avy-goto-char)				;; avy-jump (on any char)
-(global-set-key (kbd "M-]")	'avy-goto-char-2)                       ;; avy-jump (on any two chars)
-(global-set-key (kbd "C-M-y")   'toggle-truncate-lines)                 ;; switch on-off word wrap
-(global-set-key (kbd "C-M-t")   'hs-toggle-hiding)                      ;; hide/show block
-(global-set-key (kbd "M-x")     'smex)                                  ;; nicer M-x
-(global-set-key (kbd "C-z")     'nop)                                   ;; do nothing (prevent minimize to dock)
+(global-set-key (kbd "M-j")	'avy-goto-word-1)       ;; avy-jump (on word)
+(global-set-key (kbd "M-[")	'avy-goto-char)		;; avy-jump (on any char)
+(global-set-key (kbd "M-]")	'avy-goto-char-2)       ;; avy-jump (on any two chars)
+(global-set-key (kbd "C-M-y")   'toggle-truncate-lines) ;; switch on-off word wrap
+(global-set-key (kbd "C-M-t")   'hs-toggle-hiding)      ;; hide/show block
+(global-set-key (kbd "M-x")     'smex)                  ;; nicer M-x
+(global-set-key (kbd "C-z")     'nop)                   ;; do nothing (prevent minimize to dock)
 
 ;; multiple cursors key bindings
 (global-set-key (kbd "C->")		'mc/mark-next-like-this)
