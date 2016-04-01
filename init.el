@@ -25,35 +25,35 @@
 (display-time-mode 1)
 (wrap-region-global-mode)
 (global-linum-mode t)                                           ;; line numbering on
-(setq linum-format "%d ")					;; adjust line number column size
+(setq linum-format "%d ")                                       ;; adjust line number column size
 (defalias 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
 
 ;; GLOBAL KEY BINDINGS
-(global-set-key (kbd "C-M-/")   'toggle-comment-region) ;; comment code - custom function below
-(global-set-key (kbd "C-M-j")	'neotree-toggle)        ;; tree view of project directory
-(global-set-key (kbd "M-k")     'kill-this-buffer)      ;; kill current buffer
-(global-set-key (kbd "C-M-i")   'company-complete)      ;; autocomplete w/ company mode
+(global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
+(global-set-key (kbd "C-M-j")   'direx:jump-to-directory)       ;; tree view of project directory
+(global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
+(global-set-key (kbd "C-M-i")   'company-complete)              ;; autocomplete w/ company mode
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
-(global-set-key (kbd "C-x o")   'switch-window)         ;; for when there are more than 2 windows
-(global-set-key (kbd "C-=")     'er/expand-region)      ;; expand region
+(global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
+(global-set-key (kbd "C-=")     'er/expand-region)              ;; expand region
 
-(global-set-key (kbd "M-j")	'avy-goto-word-1)       ;; avy-jump (on word)
-(global-set-key (kbd "M-[")	'avy-goto-char)		;; avy-jump (on any char)
-(global-set-key (kbd "M-]")	'avy-goto-char-2)       ;; avy-jump (on any two chars)
-(global-set-key (kbd "C-M-y")   'toggle-truncate-lines) ;; switch on-off word wrap
-(global-set-key (kbd "C-M-t")   'hs-toggle-hiding)      ;; hide/show block
-(global-set-key (kbd "M-x")     'smex)                  ;; nicer M-x
-(global-set-key (kbd "C-z")     'nop)                   ;; do nothing (prevent minimize to dock)
+(global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
+(global-set-key (kbd "M-[")     'avy-goto-char)                 ;; avy-jump (on any char)
+(global-set-key (kbd "M-]")     'avy-goto-char-2)               ;; avy-jump (on any two chars)
+(global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
+(global-set-key (kbd "C-M-t")   'hs-toggle-hiding)              ;; hide/show block
+(global-set-key (kbd "M-x")     'smex)                          ;; nicer M-x
+(global-set-key (kbd "C-z")     'nop)                           ;; do nothing (prevent minimize to dock)
 
 ;; multiple cursors key bindings
-(global-set-key (kbd "C->")		'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")		'mc/mark-previous-like-this)
-(global-set-key (kbd "C-M-l")		'mc/edit-lines)
-(global-set-key (kbd "C-c C-<")		'mc/mark-all-like-this)
-(global-set-key (kbd "C-M-<mouse-1>")	'mc/add-cursor-on-click)
-(global-set-key (kbd "C-c C-l")		'recompile)
+(global-set-key (kbd "C->")             'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")             'mc/mark-previous-like-this)
+(global-set-key (kbd "C-M-l")           'mc/edit-lines)
+(global-set-key (kbd "C-c C-<")         'mc/mark-all-like-this)
+(global-set-key (kbd "C-M-<mouse-1>")   'mc/add-cursor-on-click)
+(global-set-key (kbd "C-c C-l")         'recompile)
 
 ;; custom comment toggle function
 (defun toggle-comment-region ()
@@ -91,31 +91,31 @@
       (add-to-list 'default-frame-alist '(height . 58))
       (add-to-list 'default-frame-alist '(width . 120))
       ;; key-bindings for window resizing/navigation
-      (global-set-key (kbd "H-<return>")	'toggle-fullscreen)             ;; toggle full screen
-      (global-set-key (kbd "H-M-<left>")	'shrink-window-horizontally)	;; shrink window horizontally
-      (global-set-key (kbd "H-M-<right>")	'enlarge-window-horizontally)	;; enlarge window horizontally
-      (global-set-key (kbd "H-M-<down>")	'shrink-window)			;; shrink window vertically
-      (global-set-key (kbd "H-M-<up>")		'enlarge-window)		;; enlarge window vertically
-      (global-set-key [H-left]			'windmove-left)                 ;; move to left windnow
-      (global-set-key [H-right]			'windmove-right)                ;; move to right window
-      (global-set-key [H-up]			'windmove-up)                   ;; move to upper window
-      (global-set-key [H-down]			'windmove-down)                 ;; move to lower window
+      (global-set-key (kbd "H-<return>")        'toggle-fullscreen)             ;; toggle full screen
+      (global-set-key (kbd "H-M-<left>")        'shrink-window-horizontally)    ;; shrink window horizontally
+      (global-set-key (kbd "H-M-<right>")       'enlarge-window-horizontally)   ;; enlarge window horizontally
+      (global-set-key (kbd "H-M-<down>")        'shrink-window)                 ;; shrink window vertically
+      (global-set-key (kbd "H-M-<up>")          'enlarge-window)                ;; enlarge window vertically
+      (global-set-key [H-left]                  'windmove-left)                 ;; move to left windnow
+      (global-set-key [H-right]                 'windmove-right)                ;; move to right window
+      (global-set-key [H-up]                    'windmove-up)                   ;; move to upper window
+      (global-set-key [H-down]                  'windmove-down)                 ;; move to lower window
       ;; other key bindings
-      (global-set-key (kbd "H-M-s")	'magit-status)          ;; git status
-      (global-set-key (kbd "H-M-o")	'projectile-find-file)  ;; open file in projectile mode
-      (global-set-key (kbd "H-M-t")	'hs-toggle-hiding)      ;; toggle show/hide block
-      (global-set-key (kbd "H-a")	'mark-whole-buffer)     ;; select all
-      (global-set-key (kbd "H-M-b")	'browse-url-at-point)   ;; open url under cursor in chrome
-      (global-set-key (kbd "H-M-l")	'cycle-pretty-themes)
+      (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
+      (global-set-key (kbd "H-M-o")     'projectile-find-file)  ;; open file in projectile mode
+      (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
+      (global-set-key (kbd "H-a")       'mark-whole-buffer)     ;; select all
+      (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
+      (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
       ;; other
-      (setq linum-format "%3d ")				;; adjust line number column size
+      (setq linum-format "%3d ")                                ;; adjust line number column size
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
       (cycle-pretty-themes)))
 
 ;; global-behavior
-(global-auto-revert-mode 1)				;; automatically reload files when changed
-(ido-mode 1)						;; IDO
+(global-auto-revert-mode 1)                             ;; automatically reload files when changed
+(ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
 
@@ -127,8 +127,8 @@
     (yas-minor-mode)
     (when (not yas-already-loaded)
       (progn
-	(yas-reload-all)
-	(setq yas-already-loaded 1)))))
+        (yas-reload-all)
+        (setq yas-already-loaded 1)))))
 
 ;; C/C++
 (setq c-default-style "linux" c-basic-offset 2)
@@ -195,11 +195,11 @@
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook
-	  (lambda ()
-	    (progn
-	      (company-mode)
-	      (set (make-local-variable 'company-backends)
-		   '((company-yasnippet company-dabbrev-code))))))
+          (lambda ()
+            (progn
+              (company-mode)
+              (set (make-local-variable 'company-backends)
+                   '((company-yasnippet company-dabbrev-code))))))
 
 
 ;; web-mode
@@ -230,8 +230,8 @@
 (setq inferior-julia-program-name "~/bin/julia")
 
 ;; miscellanea
-(setq tramp-use-ssh-controlmaster-options nil)							;; fix tramp without breaking ghc-mod
-(put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))	;; tramp path
+(setq tramp-use-ssh-controlmaster-options nil)                                                  ;; fix tramp without breaking ghc-mod
+(put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))       ;; tramp path
 (put 'erase-buffer 'disabled nil)
 (defun fci ()
   (interactive)
