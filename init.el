@@ -7,9 +7,11 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 
+;; recent files mode
+(recentf-mode 1)
+
 ;; add ~/bin
 (add-to-list 'load-path "~/bin")
-
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
@@ -46,6 +48,8 @@
 (global-set-key (kbd "C-M-t")   'hs-toggle-hiding)              ;; hide/show block
 (global-set-key (kbd "M-x")     'smex)                          ;; nicer M-x
 (global-set-key (kbd "C-z")     'nop)                           ;; do nothing (prevent minimize to dock)
+(global-set-key (kbd "C-c C-r") 'recentf-open-files)            ;; open recent file
+
 
 ;; multiple cursors key bindings
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
