@@ -89,7 +89,6 @@
   (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
 
 ;; graphic-only keybindings
-(powerline-default-theme)
 (if (display-graphic-p)
     (progn
       ;; default win size
@@ -116,7 +115,8 @@
       (setq linum-format "%3d ")                                ;; adjust line number column size
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      (cycle-pretty-themes)))
+      (cycle-pretty-themes)
+      (powerline-default-theme)))
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
