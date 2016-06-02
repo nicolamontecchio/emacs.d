@@ -89,6 +89,7 @@
   (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
 
 ;; graphic-only keybindings
+(powerline-default-theme)
 (if (display-graphic-p)
     (progn
       ;; default win size
