@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "ag")
+(depends-on "ample-theme")
 (depends-on "atom-dark-theme")
 (depends-on "avy")
 (depends-on "cider")
