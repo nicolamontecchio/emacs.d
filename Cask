@@ -56,4 +56,5 @@
 (depends-on "wgrep-ag")
 (depends-on "window-number")
 (depends-on "wrap-region")
+(depends-on "yaml-mode")
 (depends-on "yasnippet")
