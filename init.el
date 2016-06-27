@@ -86,7 +86,8 @@
 (defun cycle-pretty-themes ()
   (interactive)
   (load-theme (car pretty-themes) t)
-  (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
+  (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes))))
+  (if (fboundp 'powerline-reset) (powerline-reset) 'f))
 
 ;; graphic-only keybindings
 (if (display-graphic-p)
@@ -115,8 +116,8 @@
       (setq linum-format "%3d ")                                ;; adjust line number column size
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      (cycle-pretty-themes)
-      (powerline-default-theme)))
+      (powerline-default-theme)
+      (cycle-pretty-themes)))
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
