@@ -52,6 +52,7 @@
 
 
 ;; multiple cursors key bindings
+(require 'cl)   ;; fix missing equalp symbol
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
 (global-set-key (kbd "C-<")             'mc/mark-previous-like-this)
 (global-set-key (kbd "C-M-l")           'mc/edit-lines)
