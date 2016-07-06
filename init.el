@@ -243,5 +243,6 @@
   (fci-mode)
   (setq fci-rule-column 80))
 (setq magit-last-seen-setup-instructions "1.4.0")
+(ido-everywhere)
 
 (require 'wgrep)
