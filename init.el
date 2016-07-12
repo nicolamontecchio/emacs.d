@@ -1,7 +1,7 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-(require 'pallet)
-(pallet-mode t)
+;(require 'pallet)
+;(pallet-mode t)
 
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
