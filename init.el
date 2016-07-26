@@ -80,10 +80,10 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '( material ample-flat atom-dark heroku greymatters ))
+(setq pretty-themes '( material atom-dark heroku greymatters ))
 (defadvice load-theme
   (before theme-dont-propagate activate)
-  (mapcar #'disable-theme custom-enabled-themes))
+  (mapc #'disable-theme custom-enabled-themes))
 
 (defun cycle-pretty-themes ()
   (interactive)
