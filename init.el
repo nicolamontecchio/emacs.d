@@ -1,5 +1,6 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
+(package-initialize)
 ;(require 'pallet)
 ;(pallet-mode t)
 
