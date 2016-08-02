@@ -11,7 +11,7 @@
 (depends-on "company-ghc")
 (depends-on "company-irony")
 (depends-on "crontab-mode")
-(depends-on "danneskjold")
+(depends-on "danneskjold-theme")
 (depends-on "dash")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
