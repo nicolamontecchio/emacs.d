@@ -48,6 +48,7 @@
 (depends-on "scala-mode")
 (depends-on "smex")
 (depends-on "switch-window")
+(depends-on "typescript-mode")
 (depends-on "toml-mode")
 (depends-on "web-mode")
 (depends-on "wgrep")
