@@ -161,6 +161,7 @@
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'company-mode)
 
 ;; rust
 (setq rust-indent-offset 2)
@@ -252,4 +253,59 @@
 (require 'wgrep)
 
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#263238"))
+ '(ansi-term-color-vector
+   [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"])
+ '(fci-rule-character-color "#d9d9d9")
+ '(fci-rule-color "#37474f")
+ '(hl-paren-background-colors (quote ("#e8fce8" "#c1e7f8" "#f8e8e8")))
+ '(hl-paren-colors (quote ("#40883f" "#0287c8" "#b85c57")))
+ '(hl-sexp-background-color "#1c1f26")
+ '(nrepl-message-colors
+   (quote
+    ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
+ '(package-selected-packages
+   (quote
+    (flatui-theme espresso-theme express anti-zenburn-theme twilight-bright-theme plan9-theme lenlen-theme colorsarenice-theme ample-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit json-mode highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido fill-column-indicator expand-region exec-path-from-shell ess dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc cmake-mode cider avy atom-dark-theme ag)))
+ '(pdf-view-midnight-colors (quote ("#232333" . "#c7c7c7")))
+ '(rainbow-identifiers-cie-l*a*b*-lightness 70)
+ '(rainbow-identifiers-cie-l*a*b*-saturation 20)
+ '(sml/active-background-color "#98ece8")
+ '(sml/active-foreground-color "#424242")
+ '(sml/inactive-background-color "#4fa8a8")
+ '(sml/inactive-foreground-color "#424242")
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#f36c60")
+     (40 . "#ff9800")
+     (60 . "#fff59d")
+     (80 . "#8bc34a")
+     (100 . "#81d4fa")
+     (120 . "#4dd0e1")
+     (140 . "#b39ddb")
+     (160 . "#f36c60")
+     (180 . "#ff9800")
+     (200 . "#fff59d")
+     (220 . "#8bc34a")
+     (240 . "#81d4fa")
+     (260 . "#4dd0e1")
+     (280 . "#b39ddb")
+     (300 . "#f36c60")
+     (320 . "#ff9800")
+     (340 . "#fff59d")
+     (360 . "#8bc34a"))))
+ '(vc-annotate-very-old-color nil))
