@@ -47,6 +47,7 @@
 (depends-on "sbt-mode")
 (depends-on "scala-mode")
 (depends-on "smex")
+(depends-on "sublime-themes")
 (depends-on "switch-window")
 (depends-on "typescript-mode")
 (depends-on "toml-mode")
