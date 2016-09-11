@@ -227,6 +227,7 @@
   (let ((b (if mark-active (min (point) (mark)) (point-min)))
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e "scalariform --stdin" (current-buffer) t)))
+(add-hook 'scala-mode-hook 'company-mode)
 
 ;; emacs server
 (defvar server-buffer-clients)
