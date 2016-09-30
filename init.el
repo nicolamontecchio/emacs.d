@@ -166,7 +166,7 @@
 ;; rust
 (setq rust-indent-offset 2)
 (setq racer-cmd "~/.cargo/bin/racer")
-(setq racer-rust-src-path "~/repos/rustc-1.11.0/src")
+(setq racer-rust-src-path "~/repos/rustc-1.12.0/src")
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'company-mode)
 
