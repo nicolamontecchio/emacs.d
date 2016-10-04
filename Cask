@@ -19,6 +19,7 @@
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")
+(depends-on "flatland-theme")
 (depends-on "flx")
 (depends-on "flx-ido")
 (depends-on "flycheck")
