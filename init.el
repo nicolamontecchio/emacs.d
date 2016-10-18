@@ -26,7 +26,7 @@
 (column-number-mode)                                            ;; display column number in command buf.
 (add-hook 'prog-mode-hook 'subword-mode)                        ;; camel-case kill-word
 (display-time-mode 1)
-(wrap-region-global-mode)
+;;(wrap-region-global-mode)
 (global-linum-mode t)                                           ;; line numbering on
 (setq linum-format "%d ")                                       ;; adjust line number column size
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -165,8 +165,8 @@
 
 ;; rust
 (setq rust-indent-offset 2)
-(setq racer-cmd "~/.cargo/bin/racer")
-(setq racer-rust-src-path "~/repos/rustc-1.12.0/src")
+(setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
+(setq racer-rust-src-path (expand-file-name "~/repos/rustc-1.12.0/src"))
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'company-mode)
 
@@ -278,7 +278,7 @@
  '(hl-sexp-background-color "#1c1f26")
  '(package-selected-packages
    (quote
-    (flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
+    (atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
