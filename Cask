@@ -3,6 +3,7 @@
 
 (depends-on "ag")
 (depends-on "atom-dark-theme")
+(depends-on "autopair")
 (depends-on "avy")
 (depends-on "cider")
 (depends-on "cl-generic")

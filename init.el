@@ -123,6 +123,7 @@
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
+(autopair-global-mode)
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
@@ -278,7 +279,7 @@
  '(hl-sexp-background-color "#1c1f26")
  '(package-selected-packages
    (quote
-    (atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
+    (autopair atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
