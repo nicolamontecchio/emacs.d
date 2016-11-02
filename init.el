@@ -167,7 +167,9 @@
 ;; rust
 (setq rust-indent-offset 2)
 (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
-(setq racer-rust-src-path (expand-file-name "~/repos/rustc-1.12.0/src"))
+(setq racer-rust-src-path
+      (expand-file-name
+       "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'company-mode)
 
