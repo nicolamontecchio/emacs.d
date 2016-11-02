@@ -12,7 +12,7 @@
 (recentf-mode 1)
 
 ;; add ~/bin
-(add-to-list 'load-path "~/bin")
+(add-to-list 'load-path (expand-file-name "~/bin"))
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
