@@ -80,7 +80,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '(material flatland danneskjold heroku mccarthy))
+(setq pretty-themes '(material atom-dark atom-one-dark danneskjold heroku mccarthy))
 (defadvice load-theme
   (before theme-dont-propagate activate)
   (mapc #'disable-theme custom-enabled-themes))
