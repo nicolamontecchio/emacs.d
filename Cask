@@ -3,6 +3,7 @@
 
 (depends-on "ag")
 (depends-on "atom-dark-theme")
+(depends-on "atom-one-dark-theme")
 (depends-on "autopair")
 (depends-on "avy")
 (depends-on "cider")
@@ -16,6 +17,7 @@
 (depends-on "dash")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
+(depends-on "ensime")
 (depends-on "ess")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
