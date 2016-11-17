@@ -128,6 +128,12 @@
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
 
+;; Do not show ^M in files containing mixed UNIX and DOS line endings.
+(defun remove-dos-eol ()
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
 ;; yasnippet helper functions
 (setq
  yas-already-loaded nil)
@@ -199,7 +205,7 @@
 ;; ipython
 (setq
  python-shell-interpreter "ipython"
- python-shell-interpreter-args "--pylab --simple-prompt"
+ python-shell-interpreter-args "--pylab"
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
  python-shell-completion-setup-code
