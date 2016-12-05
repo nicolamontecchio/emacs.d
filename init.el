@@ -191,6 +191,7 @@
 
 ;; javascript
 (setq js-indent-level 2)
+(add-hook 'js-mode-hook 'company-mode)
 
 ;; json pretty print
 (defun jj ()
