@@ -187,7 +187,9 @@
 (add-hook 'clojure-mode-hook                      'company-mode)
 (add-hook 'scheme-mode-hook                      'hs-minor-mode)
 (setq scheme-program-name "/usr/local/bin/guile")
-
+(defun cider-shortcuts ()
+  (local-set-key (kbd "C-c C-l") 'cider-repl-clear-buffer))
+(add-hook 'clojure-mode-hook                      'cider-shortcuts)
 
 ;; javascript
 (setq js-indent-level 2)
