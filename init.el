@@ -40,6 +40,7 @@
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
+(global-set-key (kbd "C-M-o")   'other-window)                  ;; the default cyclical switch, quicker
 (global-set-key (kbd "C-=")     'er/expand-region)              ;; expand region
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
