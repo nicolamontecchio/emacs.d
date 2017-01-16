@@ -26,6 +26,7 @@
 (depends-on "flx")
 (depends-on "flx-ido")
 (depends-on "flycheck")
+(depends-on "fzf")
 (depends-on "geiser")
 (depends-on "greymatters-theme")
 (depends-on "groovy-mode")
