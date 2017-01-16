@@ -110,7 +110,7 @@
       (global-set-key [H-down]                  'windmove-down)                 ;; move to lower window
       ;; other key bindings
       (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
-      (global-set-key (kbd "H-M-o")     'projectile-find-file)  ;; open file in projectile mode
+      (global-set-key (kbd "H-M-o")     'fzf)                   ;; open file w/ fzf
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-a")       'mark-whole-buffer)     ;; select all
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
