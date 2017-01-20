@@ -204,24 +204,28 @@
 (add-to-list 'auto-mode-alist '("\\.avsc\\'" . json-mode))
 
 ;; ipython
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args "--pylab"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
- "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
- "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
- "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-(add-hook 'python-mode-hook 'yas-reload-if-necessary)
-(add-hook 'python-mode-hook
-          (lambda ()
-            (progn
-              (company-mode)
-              (set (make-local-variable 'company-backends)
-                   '((company-yasnippet company-dabbrev-code))))))
+(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i")
+
+;; (setq
+;;  python-shell-interpreter "ipython"
+;;  python-shell-interpreter-args "--pylab"
+;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;;  python-shell-completion-setup-code
+;;  "from IPython.core.completerlib import module_completion"
+;;  python-shell-completion-module-string-code
+;;  "';'.join(module_completion('''%s'''))\n"
+;;  python-shell-completion-string-code
+;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+;; (add-hook 'python-mode-hook 'yas-reload-if-necessary)
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (progn
+;;               (company-mode)
+;;               (set (make-local-variable 'company-backends)
+;;                    '((company-yasnippet company-dabbrev-code))))))
 
 
 ;; web-mode
