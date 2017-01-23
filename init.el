@@ -207,6 +207,7 @@
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
+(add-hook 'python-mode-hook 'yas-reload-if-necessary)
 
 ;; (setq
 ;;  python-shell-interpreter "ipython"
@@ -219,7 +220,6 @@
 ;;  "';'.join(module_completion('''%s'''))\n"
 ;;  python-shell-completion-string-code
 ;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-;; (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 ;; (add-hook 'python-mode-hook
 ;;           (lambda ()
 ;;             (progn
