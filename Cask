@@ -48,6 +48,7 @@
 (depends-on "protobuf-mode")
 (depends-on "racer")
 (depends-on "racket-mode")
+(depends-on "ripgrep")
 (depends-on "rust-mode")
 (depends-on "sbt-mode")
 (depends-on "scala-mode")

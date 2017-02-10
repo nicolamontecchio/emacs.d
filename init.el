@@ -7,12 +7,16 @@
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
+;; mac: match graphical emacs's PATH with terminal's
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; recent files mode
 (recentf-mode 1)
 
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
+
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
