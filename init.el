@@ -85,7 +85,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '(atom-one-dark material atom-dark danneskjold heroku mccarthy))
+(setq pretty-themes '(atom-one-dark dakrone material danneskjold heroku mccarthy))
 (defadvice load-theme
   (before theme-dont-propagate activate)
   (mapc #'disable-theme custom-enabled-themes))
@@ -298,7 +298,7 @@
  '(hl-sexp-background-color "#1c1f26")
  '(package-selected-packages
    (quote
-    (autopair atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
+    (dakrone-theme autopair atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

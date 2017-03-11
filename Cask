@@ -13,6 +13,7 @@
 (depends-on "company-ghc")
 (depends-on "company-irony")
 (depends-on "crontab-mode")
+(depends-on "dakrone-theme")
 (depends-on "danneskjold-theme")
 (depends-on "dash")
 (depends-on "direx")
