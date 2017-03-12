@@ -130,7 +130,6 @@
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
-(autopair-global-mode)
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
