@@ -85,7 +85,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 ;; graphic-only theme options
-(setq pretty-themes '(atom-one-dark dakrone material danneskjold heroku mccarthy))
+(setq pretty-themes '(atom-one-dark material danneskjold mccarthy))
 (defadvice load-theme
   (before theme-dont-propagate activate)
   (mapc #'disable-theme custom-enabled-themes))
@@ -284,39 +284,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#263238"))
- '(fci-rule-color "#37474f")
- '(hl-sexp-background-color "#1c1f26")
- '(package-selected-packages
-   (quote
-    (dakrone-theme autopair atom-one-dark-theme flatland-theme yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode twilight-bright-theme toml-mode switch-window sublime-themes smex scala-mode sbt-mode racket-mode racer protobuf-mode projectile powerline plan9-theme paredit pallet mc-extras material-theme markdown-mode magit lenlen-theme json-mode iodine-theme highlight-symbol hi2 heroku-theme groovy-mode greymatters-theme geiser flycheck flx-ido flatui-theme fill-column-indicator express expand-region exec-path-from-shell ess espresso-theme dockerfile-mode direx danneskjold-theme crontab-mode company-racer company-irony company-ghc colorsarenice-theme cmake-mode cider avy atom-dark-theme anti-zenburn-theme ample-theme ag)))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f36c60")
-     (40 . "#ff9800")
-     (60 . "#fff59d")
-     (80 . "#8bc34a")
-     (100 . "#81d4fa")
-     (120 . "#4dd0e1")
-     (140 . "#b39ddb")
-     (160 . "#f36c60")
-     (180 . "#ff9800")
-     (200 . "#fff59d")
-     (220 . "#8bc34a")
-     (240 . "#81d4fa")
-     (260 . "#4dd0e1")
-     (280 . "#b39ddb")
-     (300 . "#f36c60")
-     (320 . "#ff9800")
-     (340 . "#fff59d")
-     (360 . "#8bc34a"))))
- '(vc-annotate-very-old-color nil))
