@@ -1,8 +1,6 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (package-initialize)
-;(require 'pallet)
-;(pallet-mode t)
 
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
@@ -84,22 +82,20 @@
    nil 'fullscreen
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
-;; graphic-only theme options
-(setq pretty-themes '(atom-one-dark material danneskjold mccarthy))
-(defadvice load-theme
-  (before theme-dont-propagate activate)
-  (mapc #'disable-theme custom-enabled-themes))
 
-(defun cycle-pretty-themes ()
-  (interactive)
-  (load-theme (car pretty-themes) t)
-  (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes))))
-  ;; (if (fboundp 'powerline-reset) (powerline-reset) 'f)
-  )
 
 ;; graphic-only keybindings
 (if (display-graphic-p)
     (progn
+      ;; themes
+      (setq pretty-themes '(atom-one-dark material danneskjold mccarthy))
+      (defun cycle-pretty-themes ()
+	(interactive)
+	(load-theme (car pretty-themes) t)
+	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
+      (defadvice load-theme
+	  (before theme-dont-propagate activate)
+	(mapc #'disable-theme custom-enabled-themes))
       ;; default win size
       (add-to-list 'default-frame-alist '(height . 58))
       (add-to-list 'default-frame-alist '(width . 120))
@@ -211,26 +207,8 @@
 ;; ipython
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i")
+      python-shell-interpreter-args "-i --pylab")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
-
-;; (setq
-;;  python-shell-interpreter "ipython"
-;;  python-shell-interpreter-args "--pylab"
-;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-;;  python-shell-completion-setup-code
-;;  "from IPython.core.completerlib import module_completion"
-;;  python-shell-completion-module-string-code
-;;  "';'.join(module_completion('''%s'''))\n"
-;;  python-shell-completion-string-code
-;;  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-;; (add-hook 'python-mode-hook
-;;           (lambda ()
-;;             (progn
-;;               (company-mode)
-;;               (set (make-local-variable 'company-backends)
-;;                    '((company-yasnippet company-dabbrev-code))))))
 
 
 ;; web-mode
