@@ -130,12 +130,6 @@
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
 
-;; Do not show ^M in files containing mixed UNIX and DOS line endings.
-(defun remove-dos-eol ()
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
-
 ;; yasnippet helper functions
 (setq
  yas-already-loaded nil)
@@ -219,11 +213,6 @@
 (add-to-list 'auto-mode-alist '("\\.ngt?\\'" . web-mode))
 
 ;; scala
-(defun ss ()
-  (interactive)
-  (let ((b (if mark-active (min (point) (mark)) (point-min)))
-        (e (if mark-active (max (point) (mark)) (point-max))))
-    (shell-command-on-region b e "scalariform --stdin" (current-buffer) t)))
 (add-hook 'scala-mode-hook 'company-mode)
 
 ;; emacs server
@@ -241,12 +230,17 @@
 (setq tramp-use-ssh-controlmaster-options nil)                                                  ;; fix tramp without breaking ghc-mod
 (put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))       ;; tramp path
 (put 'erase-buffer 'disabled nil)
-(defun fci ()
-  (interactive)
-  (fci-mode)
-  (setq fci-rule-column 80))
+
+;; (defun fci ()
+;;   (interactive)
+;;   (fci-mode)
+;; (setq fci-rule-column 80)
+;;   )
+
+(setq fci-rule-column 80)
 (setq magit-last-seen-setup-instructions "1.4.0")
-(ido-everywhere)
+
+;; (ido-everywhere)
 
 (defun camelcase ()
   (interactive)
