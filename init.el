@@ -89,7 +89,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(atom-one-dark material danneskjold mccarthy))
+      (setq pretty-themes '(apropospriate-dark atom-one-dark material danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -204,6 +204,8 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --pylab")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
+(add-hook 'python-mode-hook 'company-mode)
+
 
 
 ;; web-mode
@@ -257,3 +259,37 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(fci-rule-color "#37474f")
+ '(hl-sexp-background-color "#1c1f26")
+ '(package-selected-packages
+   (quote
+    (alect-themes apropospriate-theme autumn-light-theme yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit json-mode highlight-symbol hi2 groovy-mode geiser fzf flycheck fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode direx danneskjold-theme crontab-mode company-irony company-ghc cmake-mode cider avy atom-one-dark-theme)))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#f36c60")
+     (40 . "#ff9800")
+     (60 . "#fff59d")
+     (80 . "#8bc34a")
+     (100 . "#81d4fa")
+     (120 . "#4dd0e1")
+     (140 . "#b39ddb")
+     (160 . "#f36c60")
+     (180 . "#ff9800")
+     (200 . "#fff59d")
+     (220 . "#8bc34a")
+     (240 . "#81d4fa")
+     (260 . "#4dd0e1")
+     (280 . "#b39ddb")
+     (300 . "#f36c60")
+     (320 . "#ff9800")
+     (340 . "#fff59d")
+     (360 . "#8bc34a"))))
+ '(vc-annotate-very-old-color nil))
