@@ -21,7 +21,7 @@
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")
 (depends-on "flycheck")
-(depends-on "fzf")
+;; (depends-on "fzf")
 (depends-on "geiser")
 (depends-on "groovy-mode")
 (depends-on "haskell-mode")

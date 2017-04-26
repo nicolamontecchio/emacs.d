@@ -112,7 +112,7 @@
       (global-set-key [H-down]                  'windmove-down)                 ;; move to lower window
       ;; other key bindings
       (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
-      (global-set-key (kbd "H-M-o")     'fzf)                   ;; open file w/ fzf
+      ;; (global-set-key (kbd "H-M-o")     'fzf)                   ;; open file w/ fzf
       (global-set-key (kbd "H-M-p")     'projectile-mode)       ;; toggle projectile-mode
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-a")       'mark-whole-buffer)     ;; select all
