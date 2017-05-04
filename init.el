@@ -89,7 +89,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(apropospriate-dark atom-one-dark material danneskjold mccarthy))
+      (setq pretty-themes '(apropospriate-dark atom-one-dark material kaolin danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -270,7 +270,7 @@
  '(hl-sexp-background-color "#1c1f26")
  '(package-selected-packages
    (quote
-    (alect-themes apropospriate-theme autumn-light-theme yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit json-mode highlight-symbol hi2 groovy-mode geiser fzf flycheck fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode direx danneskjold-theme crontab-mode company-irony company-ghc cmake-mode cider avy atom-one-dark-theme)))
+    (kaolin-theme alect-themes apropospriate-theme autumn-light-theme yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit json-mode highlight-symbol hi2 groovy-mode geiser fzf flycheck fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode direx danneskjold-theme crontab-mode company-irony company-ghc cmake-mode cider avy atom-one-dark-theme)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
