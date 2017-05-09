@@ -293,3 +293,48 @@
      (340 . "#fff59d")
      (360 . "#8bc34a"))))
  '(vc-annotate-very-old-color nil))
+
+
+
+
+
+;; WIP code for invoking sk; "getting inspiration from"
+;; https://github.com/bling/fzf.el/blob/master/fzf.el
+
+(defvar sk/executable "sk")
+
+(defun sk/after-term-handle-exit (process-name msg)
+  (let* ((text (buffer-substring-no-properties (point-min) (point-max)))
+         (lines (split-string text "\n" t "\s.*\s"))
+         (target (car (last (butlast lines 1))))
+         (file (expand-file-name target)))
+    (kill-buffer "*sk*")
+    (jump-to-register :sk-windows)
+    (when (file-exists-p file)
+      (find-file file)))
+  (advice-remove 'term-handle-exit #'sk/after-term-handle-exit))
+
+(defun sk/start ()
+  (interactive)
+  (require 'term)
+  (window-configuration-to-register :sk-windows)
+  (advice-add 'term-handle-exit :after #'sk/after-term-handle-exit)
+  (let ((buf (get-buffer-create "*sk*"))
+        (window-height (- 10)))  ;; win height
+    ;; TODO COMPLETE
+    ;; (with-current-buffer buf
+    ;;   (setq default-directory directory))
+    (split-window-vertically window-height)
+    (other-window 1) ;; go to the bottom???
+    (make-term "sk" sk/executable)
+    (switch-to-buffer buf)
+    (linum-mode 0)
+    (set-window-margins nil 1)
+    ;; disable various settings known to cause artifacts
+    (setq-local scroll-margin 0)
+    (setq-local scroll-conservatively 0)
+    (setq-local term-suppress-hard-newline t) ;for paths wider than the window
+    (face-remap-add-relative 'mode-line '(:box nil))
+    (term-char-mode)
+    ;; (setq mode-line-format (format "   FZF  %s" directory)) :: ??
+    ))
