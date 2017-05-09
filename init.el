@@ -321,9 +321,14 @@
   (advice-add 'term-handle-exit :after #'sk/after-term-handle-exit)
   (let ((buf (get-buffer-create "*sk*"))
         (window-height (- 10)))  ;; win height
-    ;; TODO COMPLETE
-    ;; (with-current-buffer buf
-    ;;   (setq default-directory directory))
+    (if (fboundp #'projectile-project-root)
+	(progn
+	  (message "asldaksjdl")
+	  (setq default-directory
+		(condition-case err
+		    (projectile-project-root)
+		  (error
+		   default-directory)))))
     (split-window-vertically window-height)
     (other-window 1) ;; go to the bottom???
     (make-term "sk" sk/executable)
