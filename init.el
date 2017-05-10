@@ -105,7 +105,6 @@
         (window-height (- 10)))  ;; win height
     (if (fboundp #'projectile-project-root)
 	(progn
-	  (message "asldaksjdl")
 	  (setq default-directory
 		(condition-case err
 		    (projectile-project-root)
@@ -122,9 +121,7 @@
     (setq-local scroll-conservatively 0)
     (setq-local term-suppress-hard-newline t) ;for paths wider than the window
     (face-remap-add-relative 'mode-line '(:box nil))
-    (term-char-mode)
-    ;; (setq mode-line-format (format "   FZF  %s" directory)) :: ??
-    ))
+    (term-char-mode)))
 
 
 
@@ -337,10 +334,3 @@
      (340 . "#fff59d")
      (360 . "#8bc34a"))))
  '(vc-annotate-very-old-color nil))
-
-
-
-
-
-;; WIP code for invoking sk; "getting inspiration from"
-;; https://github.com/bling/fzf.el/blob/master/fzf.el
