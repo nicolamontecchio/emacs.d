@@ -129,7 +129,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(apropospriate-dark atom-one-dark material kaolin danneskjold mccarthy))
+      (setq pretty-themes '(kaolin apropospriate-dark atom-one-dark material danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
