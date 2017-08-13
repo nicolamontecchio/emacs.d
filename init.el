@@ -192,6 +192,7 @@
 (add-hook 'c-mode-common-hook 'override-cc-cl)
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
+(setq clang-format-executable "/usr/local/opt/llvm/bin/clang-format")
 
 ;; org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -275,16 +276,9 @@
 (put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))       ;; tramp path
 (put 'erase-buffer 'disabled nil)
 
-;; (defun fci ()
-;;   (interactive)
-;;   (fci-mode)
-;; (setq fci-rule-column 80)
-;;   )
-
 (setq fci-rule-column 80)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; (ido-everywhere)
 
 (defun camelcase ()
   (interactive)
