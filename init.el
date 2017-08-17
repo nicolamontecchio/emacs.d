@@ -156,7 +156,6 @@
       (global-set-key (kbd "H-M-p")     'projectile-mode)       ;; toggle projectile-mode
       (global-set-key (kbd "H-M-o")     'sk/start)              ;; find files w/ https://github.com/lotabout/skim
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
-      (global-set-key (kbd "H-a")       'mark-whole-buffer)     ;; select all
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
       ;; other
@@ -247,7 +246,11 @@
       python-shell-interpreter-args "-i --pylab")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'company-mode)
-
+;; reformat code using yapf
+(defun yapf ()
+  (interactive)
+  (unless (use-region-p) (mark-whole-buffer))
+  (shell-command-on-region (mark) (point) "yapf" (current-buffer) t))
 
 
 ;; web-mode
