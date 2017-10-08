@@ -21,6 +21,7 @@
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")
+(depends-on "flatland")
 (depends-on "flycheck")
 (depends-on "geiser")
 (depends-on "groovy-mode")

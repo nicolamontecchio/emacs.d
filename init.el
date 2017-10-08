@@ -129,7 +129,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(kaolin apropospriate-dark atom-one-dark material danneskjold mccarthy))
+      (setq pretty-themes '(kaolin flatland atom-one-dark material danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -290,3 +290,77 @@
    "\\1\\,(upcase \\2)"))
 
 (require 'wgrep)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["#424242" "#EF9A9A" "#C5E1A5" "#FFEE58" "#64B5F6" "#E1BEE7" "#80DEEA" "#E0E0E0"])
+ '(ansi-term-color-vector
+   [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"])
+ '(beacon-color "#ec4780")
+ '(evil-emacs-state-cursor (quote ("#E57373" hbar)))
+ '(evil-insert-state-cursor (quote ("#E57373" bar)))
+ '(evil-normal-state-cursor (quote ("#FFEE58" box)))
+ '(evil-visual-state-cursor (quote ("#C5E1A5" box)))
+ '(fci-rule-character-color "#d9d9d9")
+ '(fci-rule-color "#c7c7c7")
+ '(highlight-indent-guides-auto-enabled nil)
+ '(highlight-symbol-colors
+   (quote
+    ("#FFEE58" "#C5E1A5" "#80DEEA" "#64B5F6" "#E1BEE7" "#FFCC80")))
+ '(highlight-symbol-foreground-color "#E0E0E0")
+ '(highlight-tail-colors (quote (("#ec4780" . 0) ("#424242" . 100))))
+ '(hl-sexp-background-color "#1c1f26")
+ '(linum-format "%3i")
+ '(nrepl-message-colors
+   (quote
+    ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
+ '(package-selected-packages
+   (quote
+    (flatland-black-theme flatland-theme firecode-theme farmhouse-theme eziam-theme eink-theme bubbleberry-theme boron-theme grizzl flatui-theme tango-plus-theme tango-2-theme espresso-theme anti-zenburn-theme twilight-bright-theme lenlen-theme yaml-mode wrap-region window-number wgrep-ag web-mode ujelly-theme typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit kaolin-theme json-mode highlight-symbol hi2 groovy-mode geiser flycheck fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode direx danneskjold-theme crontab-mode company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme)))
+ '(pdf-view-midnight-colors (quote ("#232333" . "#c7c7c7")))
+ '(pos-tip-background-color "#3a3a3a")
+ '(pos-tip-foreground-color "#9E9E9E")
+ '(powerline-color1 "#3d3d68")
+ '(powerline-color2 "#292945")
+ '(tabbar-background-color "#353535")
+ '(vc-annotate-background "#d4d4d4")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#437c7c")
+     (40 . "#336c6c")
+     (60 . "#205070")
+     (80 . "#2f4070")
+     (100 . "#1f3060")
+     (120 . "#0f2050")
+     (140 . "#a080a0")
+     (160 . "#806080")
+     (180 . "#704d70")
+     (200 . "#603a60")
+     (220 . "#502750")
+     (240 . "#401440")
+     (260 . "#6c1f1c")
+     (280 . "#935f5c")
+     (300 . "#834744")
+     (320 . "#732f2c")
+     (340 . "#6b400c")
+     (360 . "#23733c"))))
+ '(vc-annotate-very-old-color "#23733c")
+ '(when
+      (or
+       (not
+	(boundp
+	 (quote ansi-term-color-vector)))
+       (not
+	(facep
+	 (aref ansi-term-color-vector 0))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
