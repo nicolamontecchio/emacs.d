@@ -16,7 +16,6 @@
 (depends-on "dash")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
-(depends-on "ensime")
 (depends-on "ess")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
