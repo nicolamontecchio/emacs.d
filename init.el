@@ -129,7 +129,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(kaolin flatland atom-one-dark material danneskjold mccarthy))
+      (setq pretty-themes '(kaolin-dark flatland atom-one-dark material danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -297,3 +297,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (htmlize wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet nginx-mode mc-extras material-theme markdown-mode magit kaolin-theme json-mode highlight-symbol hi2 groovy-mode geiser flycheck flatland-theme fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode docker-compose-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))

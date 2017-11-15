@@ -29,7 +29,7 @@
 (depends-on "highlight-symbol")
 (depends-on "json-mode")
 (depends-on "julia-mode")
-(depends-on "kaolin-theme")
+(depends-on "kaolin-themes")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "material-theme")
