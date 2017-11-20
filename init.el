@@ -262,6 +262,12 @@
 
 ;; scala
 (add-hook 'scala-mode-hook 'company-mode)
+;; formatter
+(defun scalafmt ()
+  (interactive)
+  (unless (use-region-p) (mark-whole-buffer))
+  (shell-command-on-region (mark) (point) "scalafmt --stdin" (current-buffer) t))
+;; scalafmt --stdin
 
 ;; emacs server
 (defvar server-buffer-clients)
