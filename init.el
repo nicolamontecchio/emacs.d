@@ -209,7 +209,6 @@
 (add-hook 'haskell-mode-hook 'company-mode)
 
 ;; rust
-(setq rust-indent-offset 2)
 (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
 (setq racer-rust-src-path
       (expand-file-name
