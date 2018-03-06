@@ -5,9 +5,10 @@
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
+
 ;; mac: match graphical emacs's PATH with terminal's
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; (when (memq window-system '(mac ns))
+;;   (exec-path-from-shell-initialize))
 
 ;; recent files mode
 (recentf-mode 1)
@@ -318,4 +319,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (htmlize wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet nginx-mode mc-extras material-theme markdown-mode magit kaolin-theme json-mode highlight-symbol hi2 groovy-mode geiser flycheck flatland-theme fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode docker-compose-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))
+    (esup htmlize wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet nginx-mode mc-extras material-theme markdown-mode magit kaolin-theme json-mode highlight-symbol hi2 groovy-mode geiser flycheck flatland-theme fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode docker-compose-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))
