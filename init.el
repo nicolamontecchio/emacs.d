@@ -6,10 +6,6 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 
-;; mac: match graphical emacs's PATH with terminal's
-;; (when (memq window-system '(mac ns))
-;;   (exec-path-from-shell-initialize))
-
 ;; recent files mode
 (recentf-mode 1)
 
@@ -197,9 +193,6 @@
 ;; org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-;; cron mode
-(add-to-list 'auto-mode-alist '("\\.cron$" . crontab-mode))
-
 ;; octave/matlab
 (autoload 'octave-mode "octave-mod" nil t)
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode) auto-mode-alist))
@@ -312,11 +305,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (rg esup htmlize wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex ripgrep racket-mode racer protobuf-mode projectile powerline paredit pallet nginx-mode mc-extras material-theme markdown-mode magit kaolin-theme json-mode highlight-symbol hi2 groovy-mode geiser flycheck flatland-theme fill-column-indicator expand-region exec-path-from-shell ess ensime dockerfile-mode docker-compose-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))
