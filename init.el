@@ -50,7 +50,7 @@
 (global-set-key (kbd "M-x")     'smex)                          ;; nicer M-x
 (global-set-key (kbd "C-z")     'nop)                           ;; do nothing (prevent minimize to dock)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)            ;; open recent file
-(global-set-key (kbd "M-s")     'ripgrep-regexp)                ;; ripgrep search
+(global-set-key (kbd "M-s")     'rg)                            ;; ripgrep search
 
 
 ;; multiple cursors key bindings
