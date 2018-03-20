@@ -48,6 +48,7 @@
 (depends-on "smex")
 (depends-on "sublime-themes")
 (depends-on "switch-window")
+(depends-on "telephone-line-mode")
 (depends-on "typescript-mode")
 (depends-on "toml-mode")
 (depends-on "web-mode")
