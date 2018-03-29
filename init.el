@@ -262,6 +262,14 @@
   (shell-command-on-region (mark) (point) "scalafmt --stdin" (current-buffer) t))
 ;; scalafmt --stdin
 
+;; golang
+(add-hook
+ 'go-mode-hook
+ (lambda ()
+   (add-hook 'before-save-hook 'gofmt-before-save)
+   (setq tab-width 2)
+   (setq indent-tabs-mode 1)))
+
 ;; emacs server
 (defvar server-buffer-clients)
 (when (and (fboundp 'server-start) (string-equal (getenv "TERM") 'xterm))
@@ -312,4 +320,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (telephone-line yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex scala-mode sbt-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit kaolin-themes json-mode highlight-symbol hi2 groovy-mode go-mode geiser flycheck flatland-theme fill-column-indicator expand-region ess dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))
+    (js-format telephone-line yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex scala-mode sbt-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit kaolin-themes json-mode highlight-symbol hi2 groovy-mode go-mode geiser flycheck flatland-theme fill-column-indicator expand-region ess dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))
