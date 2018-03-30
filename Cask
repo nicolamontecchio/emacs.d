@@ -34,6 +34,7 @@
 (depends-on "material-theme")
 (depends-on "mc-extras")
 (depends-on "multiple-cursors")
+(depends-on "oceanic-theme")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "powerline")
