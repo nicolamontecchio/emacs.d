@@ -12,6 +12,7 @@
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+(add-to-list 'exec-path (expand-file-name "~/miniconda3/bin"))
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
@@ -243,7 +244,7 @@
 (defun yapf ()
   (interactive)
   (unless (use-region-p) (mark-whole-buffer))
-  (shell-command-on-region (mark) (point) "yapf" (current-buffer) t))
+  (shell-command-on-region (mark) (point) (executable-find "yapf") (current-buffer) t))
 
 
 ;; web-mode
