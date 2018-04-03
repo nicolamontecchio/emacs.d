@@ -314,11 +314,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (oceanic-theme js-format telephone-line yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex scala-mode sbt-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet mc-extras material-theme markdown-mode magit kaolin-themes json-mode highlight-symbol hi2 groovy-mode go-mode geiser flycheck flatland-theme fill-column-indicator expand-region ess dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme apropospriate-theme))))

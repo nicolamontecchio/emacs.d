@@ -1,7 +1,6 @@
 (source gnu)
 (source melpa)
 
-(depends-on "apropospriate-theme")
 (depends-on "atom-one-dark-theme")
 (depends-on "avy")
 (depends-on "cider")
