@@ -268,7 +268,8 @@
  (lambda ()
    (add-hook 'before-save-hook 'gofmt-before-save)
    (setq tab-width 2)
-   (setq indent-tabs-mode 1)))
+   (setq indent-tabs-mode 1)
+   (company-mode)))
 
 ;; emacs server
 (defvar server-buffer-clients)
