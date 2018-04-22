@@ -160,14 +160,13 @@
       (setq linum-format "%3d ")                                ;; adjust line number column size
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      ;; (powerline-default-theme)
+      (telephone-line-mode)
       (cycle-pretty-themes)))
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
-(telephone-line-mode)
 
 ;; yasnippet helper functions
 (setq
