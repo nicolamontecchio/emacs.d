@@ -236,7 +236,7 @@
 ;; ipython
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
 (setq python-shell-interpreter (expand-file-name "~/miniconda3/bin/ipython")
-      python-shell-interpreter-args "-i --pylab")
+      python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'company-mode)
 ;; reformat code using yapf
