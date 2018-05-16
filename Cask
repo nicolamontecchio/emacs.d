@@ -14,6 +14,7 @@
 (depends-on "dash")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
+(depends-on "dumb-jump")
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")
 (depends-on "flatland-theme")

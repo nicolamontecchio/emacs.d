@@ -42,6 +42,7 @@
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
 (global-set-key (kbd "C-M-o")   'other-window)                  ;; the default cyclical switch, quicker
 (global-set-key (kbd "C-=")     'er/expand-region)              ;; expand region
+(global-set-key (kbd "C-.")     'dumb-jump-go)                  ;; dumb jump to definition
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "M-[")     'avy-goto-char)                 ;; avy-jump (on any char)
@@ -321,4 +322,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme))))
+    (dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme))))
