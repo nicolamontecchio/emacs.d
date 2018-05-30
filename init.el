@@ -245,6 +245,7 @@
   (interactive)
   (unless (use-region-p) (mark-whole-buffer))
   (shell-command-on-region (mark) (point) (executable-find "yapf") (current-buffer) t))
+(global-set-key (kbd "C-c C-y") 'yapf)                          ;; run yapf python formatter
 
 
 ;; web-mode
