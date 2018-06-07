@@ -11,6 +11,7 @@
 
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
+(add-to-list 'exec-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 (add-to-list 'exec-path (expand-file-name "~/miniconda3/bin"))
 
@@ -35,6 +36,8 @@
 ;; GLOBAL KEY BINDINGS
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
 (global-set-key (kbd "C-M-j")   'direx:jump-to-directory)       ;; tree view of project directory
+
+(global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
 (global-set-key (kbd "C-M-i")   'company-complete)              ;; autocomplete w/ company mode
 (global-set-key (kbd "C-;")     'scroll-down-line)
@@ -323,4 +326,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme))))
+    (solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme))))
