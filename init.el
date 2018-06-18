@@ -287,6 +287,8 @@
 (server-start)
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
+;; xml indent w/ 4 spaces
+(setq nxml-child-indent 4 nxml-attribute-indent 4)
 
 ;; miscellanea
 (setq tramp-use-ssh-controlmaster-options nil)                                                  ;; fix tramp without breaking ghc-mod
@@ -329,11 +331,17 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#263238"))
+ '(company-quickhelp-color-background "#b0b0b0")
+ '(company-quickhelp-color-foreground "#232333")
  '(fci-rule-color "#37474f")
  '(hl-sexp-background-color "#1c1f26")
+ '(nrepl-message-colors
+   (quote
+    ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
  '(package-selected-packages
    (quote
-    (string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
+    (greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
+ '(pdf-view-midnight-colors (quote ("#ffffff" . "#444444")))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
