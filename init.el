@@ -132,7 +132,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(oceanic atom-one-dark flatland kaolin-dark kaolin-galaxy material danneskjold mccarthy))
+      (setq pretty-themes '(flatland oceanic atom-one-dark kaolin-dark kaolin-galaxy material danneskjold mccarthy))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
