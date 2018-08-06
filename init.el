@@ -133,16 +133,15 @@
     (progn
       ;; themes
       (setq pretty-themes '(flatland oceanic dorsey whiteboard))
-      (custom-theme-set-variables
-       'dorsey ;; defined %7i in dorsey.el wtf
-       '(linum-format " %2i "))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
+	(setq linum-format "%3d ") ;; force line number column size
 	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
       (defadvice load-theme
 	  (before theme-dont-propagate activate)
-	(mapc #'disable-theme custom-enabled-themes))
+	(progn
+	  (mapc #'disable-theme custom-enabled-themes)))
       ;; default win size
       (add-to-list 'default-frame-alist '(height . 58))
       (add-to-list 'default-frame-alist '(width . 120))
@@ -165,7 +164,6 @@
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
       ;; other
-      (setq linum-format "%3d ")                                ;; adjust line number column size
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
       (telephone-line-mode)
