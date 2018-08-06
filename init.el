@@ -132,7 +132,11 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(flatland oceanic atom-one-dark kaolin-dark kaolin-galaxy material danneskjold mccarthy))
+      (setq pretty-themes '(flatland oceanic dorsey whiteboard
+				     ;; atom-one-dark kaolin-dark
+				     ;; kaolin-galaxy material
+				     ;; danneskjold mccarthy
+				     ))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -214,6 +218,10 @@
        "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'company-mode)
+(with-eval-after-load 'lsp-mode
+  (setq lsp-rust-rls-command '("rustup" "run" ;; "nightly"
+			       "rls"))
+  (require 'lsp-rust))
 
 ;; LISPs
 (add-hook 'emacs-lisp-mode-hook                   'paredit-mode)
@@ -340,7 +348,7 @@
     ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
  '(package-selected-packages
    (quote
-    (greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
+    (lsp-rust ensime 2048-game greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
  '(pdf-view-midnight-colors (quote ("#ffffff" . "#444444")))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
