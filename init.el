@@ -132,11 +132,10 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(flatland oceanic dorsey whiteboard
-				     ;; atom-one-dark kaolin-dark
-				     ;; kaolin-galaxy material
-				     ;; danneskjold mccarthy
-				     ))
+      (setq pretty-themes '(flatland oceanic dorsey whiteboard))
+      (custom-theme-set-variables
+       'dorsey ;; defined %7i in dorsey.el wtf
+       '(linum-format " %2i "))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
