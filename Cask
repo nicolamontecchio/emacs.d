@@ -26,6 +26,7 @@
 (depends-on "highlight-symbol")
 (depends-on "json-mode")
 (depends-on "julia-mode")
+(depends-on "julia-repl")
 (depends-on "kaolin-themes")
 (depends-on "magit")
 (depends-on "markdown-mode")
