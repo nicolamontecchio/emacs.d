@@ -386,3 +386,16 @@
      (340 . "#fff59d")
      (360 . "#8bc34a"))))
  '(vc-annotate-very-old-color nil))
+
+
+;;;;;;;;;; test
+
+(defun select-block ()
+  (interactive)
+  (search-backward "###---###")
+  (set-mark-command nil)
+  (search-forward "###---###" nil nil 2)
+  ;; TODO if not found, do this ...
+  ;; (goto-char (point-max))
+  )
+(global-set-key (kbd "C-c C-e") 'select-block)
