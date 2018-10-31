@@ -392,6 +392,7 @@
 
 (defun select-block ()
   (interactive)
+  (push-mark)
   (search-backward "###---###")
   (set-mark-command nil)
   (search-forward "###---###" nil nil 2)
