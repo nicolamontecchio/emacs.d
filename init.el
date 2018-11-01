@@ -390,7 +390,7 @@
 
 ;;;;;;;;;; test
 
-(defun select-block ()
+(defun block-to-python ()
   (interactive)
   (push-mark)
   (search-backward "###---###")
@@ -398,5 +398,6 @@
   (search-forward "###---###" nil nil 2)
   ;; TODO if not found, do this ...
   ;; (goto-char (point-max))
-  )
-(global-set-key (kbd "C-c C-e") 'select-block)
+  (python-shell-send-region (mark) (point)))
+
+(global-set-key (kbd "C-c C-e") 'block-to-python)
