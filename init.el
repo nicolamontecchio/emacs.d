@@ -166,7 +166,7 @@
       ;; other
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      (telephone-line-mode)
+      (powerline-default-theme)
       (cycle-pretty-themes)))
 
 ;; global-behavior
@@ -362,8 +362,12 @@
     ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
  '(package-selected-packages
    (quote
-    (julia-repl mw-thesaurus lsp-rust ensime 2048-game greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
+    (doom-themes julia-repl mw-thesaurus lsp-rust ensime 2048-game greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
  '(pdf-view-midnight-colors (quote ("#ffffff" . "#444444")))
+ '(safe-local-variable-values
+   (quote
+    ((flycheck-pylintrc . "~/sp/stem-separation/pylintrc")
+     (firestarter . stem-sep-upload-current-file))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
