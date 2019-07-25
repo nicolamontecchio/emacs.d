@@ -87,7 +87,7 @@
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 
-;; code for using `sk` to open files
+;; code for using `sk` to open files (do a cargo install skim beforehand)
 (defvar sk/executable "sk")
 (defun sk/after-term-handle-exit (process-name msg)
   (let* ((text (buffer-substring-no-properties (point-min) (point-max)))
@@ -132,7 +132,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(misterioso flatland oceanic dorsey whiteboard))
+      (setq pretty-themes '(sanityinc-tomorrow-eighties misterioso flatland oceanic dorsey whiteboard))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -166,7 +166,7 @@
       ;; other
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      (powerline-default-theme)
+      ;; (powerline-default-theme)
       (cycle-pretty-themes)))
 
 ;; global-behavior
@@ -338,59 +338,6 @@
 (global-set-key (kbd "<f8>")     'lookup-thesaurus)
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#263238"))
- '(company-quickhelp-color-background "#b0b0b0")
- '(company-quickhelp-color-foreground "#232333")
- '(fci-rule-color "#37474f")
- '(hl-sexp-background-color "#1c1f26")
- '(nrepl-message-colors
-   (quote
-    ("#336c6c" "#205070" "#0f2050" "#806080" "#401440" "#6c1f1c" "#6b400c" "#23733c")))
- '(package-selected-packages
-   (quote
-    (blacken doom-themes julia-repl mw-thesaurus lsp-rust ensime 2048-game greymatters-theme green-phosphor-theme faff-theme eziam-theme autumn-light-theme anti-zenburn-theme doneburn-theme dakrone-light-theme string-inflection solarized-theme dumb-jump atomic-chrome yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode telephone-line switch-window sublime-themes smex scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider avy atom-one-dark-theme)))
- '(pdf-view-midnight-colors (quote ("#ffffff" . "#444444")))
- '(safe-local-variable-values
-   (quote
-    ((flycheck-pylintrc . "~/sp/stem-separation/pylintrc")
-     (firestarter . stem-sep-upload-current-file))))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f36c60")
-     (40 . "#ff9800")
-     (60 . "#fff59d")
-     (80 . "#8bc34a")
-     (100 . "#81d4fa")
-     (120 . "#4dd0e1")
-     (140 . "#b39ddb")
-     (160 . "#f36c60")
-     (180 . "#ff9800")
-     (200 . "#fff59d")
-     (220 . "#8bc34a")
-     (240 . "#81d4fa")
-     (260 . "#4dd0e1")
-     (280 . "#b39ddb")
-     (300 . "#f36c60")
-     (320 . "#ff9800")
-     (340 . "#fff59d")
-     (360 . "#8bc34a"))))
- '(vc-annotate-very-old-color nil))
-
 
 ;;;;;;;;;; test
 
@@ -405,3 +352,22 @@
   (python-shell-send-region (mark) (point)))
 
 (global-set-key (kbd "C-c C-e") 'block-to-python)
+
+
+;; (setq sml/no-confirm-load-theme t)
+;; (sml/setup)
+;; (setq sml/theme 'atom-one-dark)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))

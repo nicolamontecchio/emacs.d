@@ -11,6 +11,7 @@
 (depends-on "company")
 (depends-on "company-ghc")
 (depends-on "company-irony")
+(depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "danneskjold-theme")
 (depends-on "dash")
 (depends-on "direx")
