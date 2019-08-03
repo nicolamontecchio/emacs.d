@@ -208,6 +208,11 @@
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
 
+(defun haskellfmt ()
+  (interactive)
+  (unless (use-region-p) (mark-whole-buffer))
+  (shell-command-on-region (mark) (point) "brittany" (current-buffer) t))
+
 ;; rust
 (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
 (setq racer-rust-src-path
