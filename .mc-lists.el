@@ -3,16 +3,28 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	avy-goto-char-2
+	backward-sexp
+	comment-dwim
+	company-complete
 	dabbrev-expand
 	delete-horizontal-space
 	forward-sexp
+	haskell-indentation-common-electric-command
 	indent-for-tab-command
 	kill-region
 	mark-sexp
+	markdown-enter-key
 	markdown-outdent-or-delete
 	paredit-forward-delete
+	sgml-slash
+	toggle-comment-region
+	transpose-words
+	yaml-electric-backspace
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	end-of-buffer
+	scroll-up-line
 	))

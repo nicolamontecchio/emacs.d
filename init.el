@@ -132,7 +132,7 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(sanityinc-tomorrow-eighties misterioso flatland oceanic dorsey whiteboard))
+      (setq pretty-themes '(doom-spacegrey sanityinc-tomorrow-eighties misterioso flatland oceanic whiteboard))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -367,9 +367,38 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(beacon-color "#f2777a")
+ '(fci-rule-color "#515151")
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(frame-background-mode (quote dark))
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme))))
+    (doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#f2777a")
+     (40 . "#f99157")
+     (60 . "#ffcc66")
+     (80 . "#99cc99")
+     (100 . "#66cccc")
+     (120 . "#6699cc")
+     (140 . "#cc99cc")
+     (160 . "#f2777a")
+     (180 . "#f99157")
+     (200 . "#ffcc66")
+     (220 . "#99cc99")
+     (240 . "#66cccc")
+     (260 . "#6699cc")
+     (280 . "#cc99cc")
+     (300 . "#f2777a")
+     (320 . "#f99157")
+     (340 . "#ffcc66")
+     (360 . "#99cc99"))))
+ '(vc-annotate-very-old-color nil)
+ '(window-divider-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -16,6 +16,7 @@
 (depends-on "dash")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
+(depends-on "doom-themes")
 (depends-on "dumb-jump")
 (depends-on "expand-region")
 (depends-on "fill-column-indicator")
