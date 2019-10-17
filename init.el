@@ -290,15 +290,17 @@
 ;; julia
 (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
 
-;; emacs server
-(defvar server-buffer-clients)
-(when (and (fboundp 'server-start) (string-equal (getenv "TERM") 'xterm))
-  (server-start)
-  (defun fp-kill-server-with-buffer-routine ()
-    (and server-buffer-clients (server-done)))
-  (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))
-(server-start)
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; emacs server								 ;;
+;; (defvar server-buffer-clients)						 ;;
+;; (when (and (fboundp 'server-start) (string-equal (getenv "TERM") 'xterm))	 ;;
+;;   (server-start)								 ;;
+;;   (defun fp-kill-server-with-buffer-routine ()				 ;;
+;;     (and server-buffer-clients (server-done)))				 ;;
+;;   (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))		 ;;
+;; (server-start)								 ;;
+;; (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; xml indent w/ 4 spaces
 (setq nxml-child-indent 4 nxml-attribute-indent 4)
@@ -376,6 +378,7 @@
  '(package-selected-packages
    (quote
     (doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+ '(safe-local-variable-values (quote ((firestarter . stem-sep-upload-current-file))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
