@@ -171,6 +171,8 @@
 
 ;; global-behavior
 (global-auto-revert-mode 1)                             ;; automatically reload files when changed
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
@@ -214,16 +216,16 @@
   (shell-command-on-region (mark) (point) "brittany" (current-buffer) t))
 
 ;; rust
-(setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
-(setq racer-rust-src-path
-      (expand-file-name
-       "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-(with-eval-after-load 'lsp-mode
-  (setq lsp-rust-rls-command '("rustup" "run" ;; "nightly"
-			       "rls"))
-  (require 'lsp-rust))
+;; (setq racer-cmd (expand-file-name "~/.cargo/bin/racer"))
+;; (setq racer-rust-src-path
+;;       (expand-file-name
+;;        "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"))
+;; (add-hook 'rust-mode-hook #'racer-mode)
+;; (add-hook 'racer-mode-hook #'company-mode)
+;; (with-eval-after-load 'lsp-mode
+;;   (setq lsp-rust-rls-command '("rustup" "run" ;; "nightly"
+;; 			       "rls"))
+;;   (require 'lsp-rust))
 
 ;; LISPs
 (add-hook 'emacs-lisp-mode-hook                   'paredit-mode)
