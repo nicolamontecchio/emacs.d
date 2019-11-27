@@ -132,7 +132,10 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(doom-spacegrey sanityinc-tomorrow-eighties misterioso flatland oceanic whiteboard))
+      (setq pretty-themes '(doom-spacegrey
+			    sanityinc-tomorrow-eighties
+			    misterioso
+			    flatland whiteboard))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -287,22 +290,11 @@
    (add-hook 'before-save-hook 'gofmt-before-save)
    (setq tab-width 2)
    (setq indent-tabs-mode 1)
-   (company-mode)))
+   (company-mode)
+   (lsp)))
 
 ;; julia
 (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; emacs server								 ;;
-;; (defvar server-buffer-clients)						 ;;
-;; (when (and (fboundp 'server-start) (string-equal (getenv "TERM") 'xterm))	 ;;
-;;   (server-start)								 ;;
-;;   (defun fp-kill-server-with-buffer-routine ()				 ;;
-;;     (and server-buffer-clients (server-done)))				 ;;
-;;   (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))		 ;;
-;; (server-start)								 ;;
-;; (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function) ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; xml indent w/ 4 spaces
 (setq nxml-child-indent 4 nxml-attribute-indent 4)
@@ -314,7 +306,6 @@
 
 (setq fci-rule-column 80)
 (setq magit-last-seen-setup-instructions "1.4.0")
-
 
 (defun camelcase ()
   (interactive)
@@ -379,7 +370,7 @@
  '(frame-background-mode (quote dark))
  '(package-selected-packages
    (quote
-    (doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+    (lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
  '(safe-local-variable-values (quote ((firestarter . stem-sep-upload-current-file))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map

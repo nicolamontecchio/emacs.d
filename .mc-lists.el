@@ -5,6 +5,10 @@
       '(
 	avy-goto-char-2
 	backward-sexp
+	c-electric-colon
+	c-electric-paren
+	c-electric-semi&comma
+	c-indent-line-or-region
 	comment-dwim
 	company-complete
 	dabbrev-expand
@@ -26,5 +30,7 @@
 (setq mc/cmds-to-run-once
       '(
 	end-of-buffer
+	python-shell-send-buffer
 	scroll-up-line
+	switch-window
 	))
