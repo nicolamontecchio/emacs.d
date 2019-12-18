@@ -259,12 +259,7 @@
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'company-mode)
-;; reformat code using yapf
-(defun yapf ()
-  (interactive)
-  (unless (use-region-p) (mark-whole-buffer))
-  (shell-command-on-region (mark) (point) (executable-find "yapf") (current-buffer) t))
-(global-set-key (kbd "C-c C-y") 'yapf)                          ;; run yapf python formatter
+(global-set-key (kbd "C-c C-y") 'blacken-buffer)                          ;; run python formatter
 
 
 ;; web-mode
@@ -368,9 +363,14 @@
  '(fci-rule-color "#515151")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(frame-background-mode (quote dark))
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#D08770"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#A3BE8C"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#4f5b66"))
+ '(objed-cursor-color "#BF616A")
  '(package-selected-packages
    (quote
-    (lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+    (slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+ '(pdf-view-midnight-colors (cons "#2b303b" "#c0c5ce"))
  '(safe-local-variable-values (quote ((firestarter . stem-sep-upload-current-file))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
