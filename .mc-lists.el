@@ -6,13 +6,17 @@
 	avy-goto-char-2
 	backward-sexp
 	c-electric-colon
+	c-electric-delete-forward
 	c-electric-paren
 	c-electric-semi&comma
+	c-electric-slash
+	c-electric-star
 	c-indent-line-or-region
 	comment-dwim
 	company-complete
 	dabbrev-expand
 	delete-horizontal-space
+	electric-newline-and-maybe-indent
 	forward-sexp
 	haskell-indentation-common-electric-command
 	indent-for-tab-command
@@ -20,7 +24,11 @@
 	mark-sexp
 	markdown-enter-key
 	markdown-outdent-or-delete
+	paredit-backward-kill-word
 	paredit-forward-delete
+	rjsx-delete-creates-full-tag
+	rjsx-electric-gt
+	rjsx-electric-lt
 	sgml-slash
 	toggle-comment-region
 	transpose-words
@@ -32,5 +40,6 @@
 	end-of-buffer
 	python-shell-send-buffer
 	scroll-up-line
+	shrink-window
 	switch-window
 	))

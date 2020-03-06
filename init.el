@@ -259,7 +259,13 @@
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'company-mode)
-(global-set-key (kbd "C-c C-y") 'blacken-buffer)                          ;; run python formatter
+
+(defun python-cleanup ()
+  (interactive)
+  (progn
+    (blacken-buffer)
+    (shell-command (concat "importchecker " (buffer-file-name)))))
+(global-set-key (kbd "C-c C-y") 'python-cleanup)                          ;; run python formatter
 
 
 ;; web-mode
