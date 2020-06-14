@@ -167,7 +167,7 @@
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
-      (global-set-key [f8]              'deft)                  ;; deft on F8
+      (global-set-key (kbd "<f8>")      'deft)                  ;; deft on F8
 
       ;; other
       (custom-set-faces
@@ -330,7 +330,6 @@
             (current-word)))
     (setq word (replace-regexp-in-string " " "_" word))
     (browse-url (concat "https://www.thesaurus.com/browse/" word))))
-(global-set-key (kbd "<f8>")     'lookup-thesaurus)
 
 
 ;; deft
