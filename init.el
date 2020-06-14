@@ -331,6 +331,9 @@
 (global-set-key (kbd "<f8>")     'lookup-thesaurus)
 
 
+;; deft
+(setq deft-directory "~/Dropbox/zk")
+
 
 ;;;;;;;;;; test
 
@@ -367,7 +370,7 @@
  '(objed-cursor-color "#BF616A")
  '(package-selected-packages
    (quote
-    (fixmee slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+    (deft fixmee slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
  '(pdf-view-midnight-colors (cons "#2b303b" "#c0c5ce"))
  '(safe-local-variable-values (quote ((firestarter . stem-sep-upload-current-file))))
  '(vc-annotate-background nil)

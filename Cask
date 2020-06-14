@@ -10,6 +10,7 @@
 (depends-on "company")
 (depends-on "company-lsp")
 (depends-on "dash")
+(depends-on "deft")
 (depends-on "direx")
 (depends-on "dockerfile-mode")
 (depends-on "dumb-jump")
