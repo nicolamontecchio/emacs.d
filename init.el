@@ -167,6 +167,8 @@
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
+      (global-set-key [f8]              'deft)                  ;; deft on F8
+
       ;; other
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
@@ -333,7 +335,6 @@
 
 ;; deft
 (setq deft-directory "~/Dropbox/zk")
-
 
 ;;;;;;;;;; test
 
