@@ -4,7 +4,6 @@
 (depends-on "avy")
 (depends-on "blacken")
 (depends-on "cider")
-(depends-on "clang-format")
 (depends-on "cl-generic")
 (depends-on "cmake-mode")
 (depends-on "company")
