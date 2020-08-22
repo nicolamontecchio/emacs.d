@@ -4,7 +4,7 @@
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
-(package-initialize)
+;; (package-initialize)
 
 ;; recent files mode
 (recentf-mode 1)

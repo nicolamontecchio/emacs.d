@@ -36,7 +36,6 @@
 (depends-on "projectile")
 (depends-on "protobuf-mode")
 (depends-on "racer")
-(depends-on "racket-mode")
 (depends-on "rjsx-mode")
 (depends-on "rg")
 (depends-on "rust-mode")
@@ -48,7 +47,7 @@
 (depends-on "toml-mode")
 (depends-on "web-mode")
 (depends-on "wgrep")
-(depends-on "window-number")
+;; (depends-on "window-number")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 
