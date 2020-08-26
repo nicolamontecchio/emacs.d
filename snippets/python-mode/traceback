@@ -1,0 +1,7 @@
+# name: traceback
+# key: traceback
+# --
+import traceback
+
+traceback.print_exc()
+traceback.print_stack()
