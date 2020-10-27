@@ -288,7 +288,8 @@
    (lsp)))
 
 ;; julia
-(add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
+;; (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
+(add-hook 'julia-mode-hook #'julia-vterm-mode)  ;; testing out new minor mode
 
 ;; xml indent w/ 4 spaces
 (setq nxml-child-indent 4 nxml-attribute-indent 4)
@@ -361,21 +362,19 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(beacon-color "#f2777a")
  '(fci-rule-color "#515151")
- '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
- '(frame-background-mode (quote dark))
+ '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
+ '(frame-background-mode 'dark)
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#D08770"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#A3BE8C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#4f5b66"))
  '(objed-cursor-color "#BF616A")
  '(package-selected-packages
-   (quote
-    (deft fixmee slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme)))
+   '(julia-vterm deft fixmee slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme))
  '(pdf-view-midnight-colors (cons "#2b303b" "#c0c5ce"))
- '(safe-local-variable-values (quote ((firestarter . stem-sep-upload-current-file))))
+ '(safe-local-variable-values '((firestarter . stem-sep-upload-current-file)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#f2777a")
+   '((20 . "#f2777a")
      (40 . "#f99157")
      (60 . "#ffcc66")
      (80 . "#99cc99")
@@ -392,7 +391,7 @@
      (300 . "#f2777a")
      (320 . "#f99157")
      (340 . "#ffcc66")
-     (360 . "#99cc99"))))
+     (360 . "#99cc99")))
  '(vc-annotate-very-old-color nil)
  '(window-divider-mode nil))
 (custom-set-faces

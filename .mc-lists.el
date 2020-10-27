@@ -39,6 +39,7 @@
       '(
 	end-of-buffer
 	python-shell-send-buffer
+	scroll-down-line
 	scroll-up-line
 	shrink-window
 	switch-window

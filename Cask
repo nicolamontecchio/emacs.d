@@ -24,6 +24,7 @@
 (depends-on "json-mode")
 (depends-on "julia-mode")
 (depends-on "julia-repl")
+(depends-on "julia-vterm")
 (depends-on "lsp-mode")
 (depends-on "lsp-ui")
 (depends-on "magit")
