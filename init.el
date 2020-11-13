@@ -2,12 +2,77 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
 
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-;; (package-initialize)
-
 ;; recent files mode
 (recentf-mode 1)
+
+;; bootstrap-install of straight package manager
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; packages - all installed automatically on first loading 
+(straight-use-package 'avy)
+(straight-use-package 'blacken)
+(straight-use-package 'cider)
+(straight-use-package 'cl-generic)
+(straight-use-package 'cmake-mode)
+(straight-use-package 'company)
+(straight-use-package 'company-lsp)
+(straight-use-package 'dash)
+(straight-use-package 'deft)
+(straight-use-package 'direx)
+(straight-use-package 'dockerfile-mode)
+(straight-use-package 'dumb-jump)
+(straight-use-package 'expand-region)
+(straight-use-package 'fill-column-indicator)
+(straight-use-package 'geiser)
+(straight-use-package 'go-mode)
+(straight-use-package 'groovy-mode)
+(straight-use-package 'haskell-mode)
+(straight-use-package 'hi2)
+(straight-use-package 'highlight-symbol)
+(straight-use-package 'json-mode)
+(straight-use-package 'julia-mode)
+(straight-use-package 'julia-repl)
+(straight-use-package 'julia-vterm)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
+(straight-use-package 'magit)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'mc-extras)
+(straight-use-package 'multiple-cursors)
+(straight-use-package 'pallet)
+(straight-use-package 'paredit)
+(straight-use-package 'powerline)
+(straight-use-package 'projectile)
+(straight-use-package 'protobuf-mode)
+(straight-use-package 'racer)
+(straight-use-package 'rjsx-mode)
+(straight-use-package 'rg)
+(straight-use-package 'rust-mode)
+(straight-use-package 'sbt-mode)
+(straight-use-package 'scala-mode)
+(straight-use-package 'smex)
+(straight-use-package 'switch-window)
+(straight-use-package 'typescript-mode)
+(straight-use-package 'toml-mode)
+(straight-use-package 'web-mode)
+(straight-use-package 'wgrep)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'yasnippet)
+;;   - color themes
+(straight-use-package 'color-theme-sanityinc-tomorrow)
+(straight-use-package 'doom-themes)
+(straight-use-package 'flatland-theme)
 
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
@@ -335,7 +400,7 @@
 ;; deft
 (setq deft-directory "~/Dropbox/zk")
 
-;;;;;;;;;; test
+;;;;;;;;;; testing out
 
 (defun block-to-python ()
   (interactive)
@@ -349,51 +414,8 @@
 
 (global-set-key (kbd "C-c C-e") 'block-to-python)
 
+;; font
 
-;; (setq sml/no-confirm-load-theme t)
-;; (sml/setup)
-;; (setq sml/theme 'atom-one-dark)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(beacon-color "#f2777a")
- '(fci-rule-color "#515151")
- '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
- '(frame-background-mode 'dark)
- '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#D08770"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#A3BE8C"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#4f5b66"))
- '(objed-cursor-color "#BF616A")
- '(package-selected-packages
-   '(julia-vterm deft fixmee slime-volleyball lsp-ui company-lsp lsp-mode doom-themes vlf color-theme-sanityinc-tomorrow yasnippet yaml-mode wrap-region window-number wgrep-ag web-mode typescript-mode toml-mode switch-window sublime-themes smex smart-mode-line-atom-one-dark-theme scala-mode sbt-mode rjsx-mode rg racket-mode racer protobuf-mode projectile powerline paredit pallet omnibox oceanic-theme mc-extras material-theme markdown-mode magit kaolin-themes julia-repl julia-mode json-mode highlight-symbol hi2 groovy-mode go-mode geiser flatland-theme fill-column-indicator expand-region dumb-jump dockerfile-mode direx danneskjold-theme company-irony company-ghc cmake-mode clang-format cider blacken avy atomic-chrome atom-one-dark-theme atom-dark-theme))
- '(pdf-view-midnight-colors (cons "#2b303b" "#c0c5ce"))
- '(safe-local-variable-values '((firestarter . stem-sep-upload-current-file)))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   '((20 . "#f2777a")
-     (40 . "#f99157")
-     (60 . "#ffcc66")
-     (80 . "#99cc99")
-     (100 . "#66cccc")
-     (120 . "#6699cc")
-     (140 . "#cc99cc")
-     (160 . "#f2777a")
-     (180 . "#f99157")
-     (200 . "#ffcc66")
-     (220 . "#99cc99")
-     (240 . "#66cccc")
-     (260 . "#6699cc")
-     (280 . "#cc99cc")
-     (300 . "#f2777a")
-     (320 . "#f99157")
-     (340 . "#ffcc66")
-     (360 . "#99cc99")))
- '(vc-annotate-very-old-color nil)
- '(window-divider-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
