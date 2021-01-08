@@ -307,8 +307,8 @@
    (lsp)))
 
 ;; julia
-;; (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
-(add-hook 'julia-mode-hook #'julia-vterm-mode)  ;; testing out new minor mode
+(add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
+;; (add-hook 'julia-mode-hook #'julia-vterm-mode)  ;; testing out new minor mode
 
 ;; xml indent w/ 4 spaces
 (setq nxml-child-indent 4 nxml-attribute-indent 4)

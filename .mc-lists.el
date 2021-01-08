@@ -20,6 +20,7 @@
 	forward-sexp
 	haskell-indentation-common-electric-command
 	indent-for-tab-command
+	julia-latexsub-or-indent
 	kill-region
 	mark-sexp
 	markdown-enter-key
