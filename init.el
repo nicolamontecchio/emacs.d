@@ -62,6 +62,7 @@
 (straight-use-package 'sbt-mode)
 (straight-use-package 'scala-mode)
 (straight-use-package 'smex)
+(straight-use-package 'string-inflection)
 (straight-use-package 'switch-window)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'toml-mode)
@@ -156,7 +157,8 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(doom-spacegrey
+      (setq pretty-themes '(doom-opera
+			    doom-spacegrey
 			    doom-peacock
 			    sanityinc-tomorrow-eighties
 			    misterioso
