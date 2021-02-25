@@ -124,6 +124,7 @@
 (global-set-key (kbd "M-s")     'rg)                            ;; ripgrep search
 (global-set-key (kbd "C-c C-i") 'string-inflection-toggle)      ;; cycle through camelcase etc.
 
+(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
 
 ;; multiple cursors key bindings
 (require 'cl)   ;; fix missing equalp symbol
