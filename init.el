@@ -21,6 +21,7 @@
 
 ;; packages - all installed automatically on first loading
 (straight-use-package 'avy)
+(straight-use-package 'atomic-chrome)
 (straight-use-package 'blacken)
 (straight-use-package 'cider)
 (straight-use-package 'cl-generic)
@@ -354,6 +355,10 @@
     (browse-url (concat "https://www.thesaurus.com/browse/" word))))
 
 
+;; markdown preview -- NB needs pandoc installed
+(custom-set-variables
+ '(markdown-command "/usr/local/bin/pandoc"))
+
 ;; deft
 (setq deft-directory "~/Dropbox/zk")
 
@@ -362,9 +367,9 @@
 (defun block-to-python ()
   (interactive)
   (push-mark)
-  (search-backward "###---###")
+  (search-backward "######")
   (set-mark-command nil)
-  (search-forward "###---###" nil nil 2)
+  (search-forward "######" nil nil 2)
   ;; TODO if not found, do this ...
   ;; (goto-char (point-max))
   (python-shell-send-region (mark) (point)))
