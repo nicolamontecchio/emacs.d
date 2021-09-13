@@ -126,6 +126,11 @@
 (global-set-key (kbd "C-c C-i") 'string-inflection-toggle)      ;; cycle through camelcase etc.
 
 (global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
+(global-set-key (kbd "H-M-p")     'projectile-mode)             ;; toggle projectile-mode
+
+;; projectile
+(define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+
 
 ;; multiple cursors key bindings
 (require 'cl)   ;; fix missing equalp symbol
@@ -189,8 +194,7 @@
       (global-set-key [H-down]                  'windmove-down)                 ;; move to lower window
       ;; other key bindings
       (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
-      ;; (global-set-key (kbd "H-M-o")     'fzf)                   ;; open file w/ fzf
-      (global-set-key (kbd "H-M-p")     'projectile-mode)       ;; toggle projectile-mode
+
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
@@ -219,6 +223,10 @@
       (progn
         (yas-reload-all)
         (setq yas-already-loaded 1)))))
+
+(setq yas-snippet-dirs '("~/repos/emacs.d/snippets"))
+
+
 
 ;; C/C++
 (setq c-default-style "linux" c-basic-offset 2)
