@@ -126,10 +126,13 @@
 (global-set-key (kbd "C-c C-i") 'string-inflection-toggle)      ;; cycle through camelcase etc.
 
 (global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
-(global-set-key (kbd "H-M-p")     'projectile-mode)             ;; toggle projectile-mode
 
-;; projectile
-(define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+
+(defun toggle-projectile ()
+  (interactive)
+  (projectile-mode)
+  (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map))
+(global-set-key (kbd "H-M-p")     'toggle-projectile)             ;; toggle projectile-mode
 
 
 ;; multiple cursors key bindings
