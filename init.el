@@ -24,18 +24,18 @@
 (straight-use-package 'atomic-chrome)
 (straight-use-package 'blacken)
 (straight-use-package 'cider)
-(straight-use-package 'cl-generic)
+;; (straight-use-package 'cl-generic)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'company)
 (straight-use-package 'company-lsp)
-(straight-use-package 'dash)
-(straight-use-package 'deft)
+;; (straight-use-package 'dash)
+;; (straight-use-package 'deft)
 (straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
 (straight-use-package 'fill-column-indicator)
-(straight-use-package 'geiser)
+;; (straight-use-package 'geiser)
 (straight-use-package 'go-mode)
 (straight-use-package 'groovy-mode)
 (straight-use-package 'haskell-mode)
@@ -51,10 +51,10 @@
 (straight-use-package 'markdown-mode)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
-(straight-use-package 'pallet)
+;; (straight-use-package 'pallet)
 (straight-use-package 'paredit)
-(straight-use-package 'powerline)
-(straight-use-package 'projectile)
+;; (straight-use-package 'powerline)
+;; (straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'racer)
 (straight-use-package 'rjsx-mode)
@@ -63,7 +63,7 @@
 (straight-use-package 'sbt-mode)
 (straight-use-package 'scala-mode)
 (straight-use-package 'smex)
-(straight-use-package 'string-inflection)
+;; (straight-use-package 'string-inflection)
 (straight-use-package 'switch-window)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'toml-mode)
@@ -71,6 +71,7 @@
 (straight-use-package 'wgrep)
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
+
 ;;   - color themes
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 (straight-use-package 'doom-themes)
@@ -342,8 +343,6 @@
   (query-replace-regexp
    "\\(\\w\\)_\\(\\w\\)"
    "\\1\\,(upcase \\2)"))
-
-(require 'wgrep)
 
 ;; lilypond
 (setq load-path (append (list "/Applications/LilyPond.app/Contents/Resources/share/emacs/site-lisp") load-path))
