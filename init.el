@@ -62,6 +62,7 @@
 (straight-use-package 'rust-mode)
 (straight-use-package 'sbt-mode)
 (straight-use-package 'scala-mode)
+(straight-use-package 'shader-mode)
 (straight-use-package 'smex)
 ;; (straight-use-package 'string-inflection)
 (straight-use-package 'switch-window)
