@@ -24,6 +24,7 @@
 (straight-use-package 'atomic-chrome)
 (straight-use-package 'blacken)
 (straight-use-package 'cider)
+(straight-use-package 'csharp-mode)
 ;; (straight-use-package 'cl-generic)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'company)
@@ -383,7 +384,7 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#80A0C2"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#A2BF8A"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#3f3f3f"))
- '(markdown-command "/usr/local/bin/pandoc")
+ '(markdown-command "~/.nix-profile/bin/pandoc")
  '(objed-cursor-color "#C16069")
  '(pdf-view-midnight-colors (cons "#eceff4" "#323334"))
  '(rustic-ansi-faces
