@@ -1,6 +1,8 @@
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
+;; mac: keep right alt outside of emacs, to type ü ä ...
+(setq mac-right-option-modifier nil)
 
 ;; recent files mode
 (recentf-mode 1)
@@ -324,6 +326,7 @@
    (setq indent-tabs-mode 1)
    (company-mode)
    (lsp)))
+
 
 ;; julia
 (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
