@@ -327,6 +327,13 @@
    (company-mode)
    (lsp)))
 
+;; csharp
+(defun csharp-stuff ()
+  (electric-pair-local-mode 1) ;; Emacs 25
+  (setq c-basic-offset 4)
+  ;; (setq tab-width 4)
+  )
+(add-hook 'csharp-mode-hook 'csharp-stuff)
 
 ;; julia
 (add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
