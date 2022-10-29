@@ -63,6 +63,7 @@
 (straight-use-package 'rjsx-mode)
 (straight-use-package 'rg)
 (straight-use-package 'rust-mode)
+(straight-use-package 'rustic)
 (straight-use-package 'sbt-mode)
 (straight-use-package 'scala-mode)
 (straight-use-package 'shader-mode)
@@ -207,7 +208,6 @@
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
-      (global-set-key (kbd "<f8>")      'deft)                  ;; deft on F8
 
       ;; other
       (custom-set-faces
@@ -331,6 +331,7 @@
 (defun csharp-stuff ()
   (electric-pair-local-mode 1) ;; Emacs 25
   (setq c-basic-offset 4)
+  (setq-default indent-tabs-mode nil) ;; no tabs
   ;; (setq tab-width 4)
   )
 (add-hook 'csharp-mode-hook 'csharp-stuff)
@@ -421,9 +422,6 @@
     (cons 340 "#525252")
     (cons 360 "#525252")))
  '(vc-annotate-very-old-color nil))
-
-;; deft
-(setq deft-directory "~/Dropbox/zk")
 
 ;;;;;;;;;; testing out
 
