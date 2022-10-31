@@ -233,7 +233,7 @@
         (yas-reload-all)
         (setq yas-already-loaded 1)))))
 
-(setq yas-snippet-dirs '("~/repos/emacs.d/snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 
 
 
