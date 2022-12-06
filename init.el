@@ -22,6 +22,7 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; packages - all installed automatically on first loading
+(straight-use-package 'ample-theme)
 (straight-use-package 'avy)
 (straight-use-package 'atomic-chrome)
 (straight-use-package 'blacken)
@@ -173,10 +174,11 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(doom-vibrant
+      (setq pretty-themes '(ample
 			    doom-opera
 			    doom-spacegrey
 			    doom-peacock
+			    doom-vibrant
 			    sanityinc-tomorrow-eighties
 			    misterioso
 			    flatland whiteboard))
