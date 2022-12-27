@@ -24,22 +24,15 @@
 ;; packages - all installed automatically on first loading
 (straight-use-package 'ample-theme)
 (straight-use-package 'avy)
-(straight-use-package 'atomic-chrome)
 (straight-use-package 'blacken)
-(straight-use-package 'cider)
 (straight-use-package 'csharp-mode)
-;; (straight-use-package 'cl-generic)
 (straight-use-package 'cmake-mode)
-(straight-use-package 'company)
-(straight-use-package 'company-lsp)
-;; (straight-use-package 'dash)
-;; (straight-use-package 'deft)
+(straight-use-package 'corfu)
 (straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
 (straight-use-package 'fill-column-indicator)
-;; (straight-use-package 'geiser)
 (straight-use-package 'go-mode)
 (straight-use-package 'groovy-mode)
 (straight-use-package 'haskell-mode)
@@ -55,10 +48,7 @@
 (straight-use-package 'markdown-mode)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
-;; (straight-use-package 'pallet)
 (straight-use-package 'paredit)
-;; (straight-use-package 'powerline)
-;; (straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'racer)
 (straight-use-package 'rjsx-mode)
@@ -69,7 +59,6 @@
 (straight-use-package 'scala-mode)
 (straight-use-package 'shader-mode)
 (straight-use-package 'smex)
-;; (straight-use-package 'string-inflection)
 (straight-use-package 'switch-window)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'toml-mode)
@@ -113,7 +102,7 @@
 
 (global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
-(global-set-key (kbd "C-M-i")   'company-complete)              ;; autocomplete w/ company mode
+;; (global-set-key (kbd "C-M-i")   'company-complete)              ;; autocomplete w/ company mode
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
@@ -122,8 +111,6 @@
 (global-set-key (kbd "C-.")     'dumb-jump-go)                  ;; dumb jump to definition
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
-(global-set-key (kbd "M-[")     'avy-goto-char)                 ;; avy-jump (on any char)
-(global-set-key (kbd "M-]")     'avy-goto-char-2)               ;; avy-jump (on any two chars)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
 (global-set-key (kbd "C-M-t")   'hs-toggle-hiding)              ;; hide/show block
 (global-set-key (kbd "M-x")     'smex)                          ;; nicer M-x
@@ -133,13 +120,6 @@
 (global-set-key (kbd "C-c C-i") 'string-inflection-toggle)      ;; cycle through camelcase etc.
 
 (global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
-
-
-(defun toggle-projectile ()
-  (interactive)
-  (projectile-mode)
-  (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map))
-(global-set-key (kbd "H-M-p")     'toggle-projectile)             ;; toggle projectile-mode
 
 
 ;; multiple cursors key bindings
@@ -242,12 +222,9 @@
 ;; C/C++
 (setq c-default-style "linux" c-basic-offset 2)
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
-(add-hook 'c-mode-common-hook 'company-mode)
 (defun override-cc-cl ()
        (local-set-key (kbd "C-c C-l") 'recompile))
 (add-hook 'c-mode-common-hook 'override-cc-cl)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
 
 ;; org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -255,7 +232,6 @@
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'company-mode)
 
 (defun haskellfmt ()
   (interactive)
@@ -270,13 +246,11 @@
 (add-hook 'eval-expression-minibuffer-setup-hook  'paredit-mode)
 (add-hook 'scheme-mode-hook                       'paredit-mode)
 (add-hook 'clojure-mode-hook                      'paredit-mode)
-(add-hook 'clojure-mode-hook                      'company-mode)
 (add-hook 'scheme-mode-hook                      'hs-minor-mode)
 (setq scheme-program-name "/usr/local/bin/guile")
 
 ;; javascript
 (setq js-indent-level 2)
-(add-hook 'js-mode-hook 'company-mode)
 
 ;; json pretty print
 (defun jj ()
@@ -293,7 +267,6 @@
 (setq python-shell-interpreter (expand-file-name "~/miniconda3/bin/ipython")
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
-(add-hook 'python-mode-hook 'company-mode)
 
 (defun python-cleanup ()
   (interactive)
@@ -311,7 +284,6 @@
 (add-to-list 'auto-mode-alist '("\\.ngt?\\'" . web-mode))
 
 ;; scala
-(add-hook 'scala-mode-hook 'company-mode)
 ;; formatter
 (defun scalafmt ()
   (interactive)
@@ -326,7 +298,6 @@
    (add-hook 'before-save-hook 'gofmt-before-save)
    (setq tab-width 2)
    (setq indent-tabs-mode 1)
-   (company-mode)
    (lsp)))
 
 ;; csharp
