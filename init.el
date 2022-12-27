@@ -22,7 +22,6 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; packages - all installed automatically on first loading
-(straight-use-package 'ample-theme)
 (straight-use-package 'avy)
 (straight-use-package 'blacken)
 (straight-use-package 'csharp-mode)
@@ -68,6 +67,7 @@
 (straight-use-package 'yasnippet)
 
 ;;   - color themes
+(straight-use-package 'ample-theme)
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 (straight-use-package 'doom-themes)
 (straight-use-package 'flatland-theme)
@@ -77,6 +77,9 @@
 (add-to-list 'exec-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 (add-to-list 'exec-path (expand-file-name "~/miniconda3/bin"))
+
+;; enable corfu globally for autocompletion
+(global-corfu-mode)
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
@@ -102,7 +105,6 @@
 
 (global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
-;; (global-set-key (kbd "C-M-i")   'company-complete)              ;; autocomplete w/ company mode
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
