@@ -158,10 +158,10 @@
       ;; themes
       (setq pretty-themes '(ample
 			    doom-opera
-			    doom-spacegrey
-			    doom-peacock
-			    doom-vibrant
-			    sanityinc-tomorrow-eighties
+			    ;; doom-spacegrey
+			    ;; doom-peacock
+			    ;; doom-vibrant
+			    ;; sanityinc-tomorrow-eighties
 			    misterioso
 			    flatland whiteboard))
       (defun cycle-pretty-themes ()
