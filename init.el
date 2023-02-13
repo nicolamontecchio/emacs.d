@@ -48,6 +48,7 @@
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'paredit)
+(straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'racer)
 (straight-use-package 'rjsx-mode)
@@ -100,6 +101,7 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
 
 ;; GLOBAL KEY BINDINGS
+(global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
 (global-set-key (kbd "C-M-j")   'direx:jump-to-directory)       ;; tree view of project directory
 
@@ -370,7 +372,7 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#80A0C2"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#A2BF8A"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#3f3f3f"))
- '(markdown-command "~/.nix-profile/bin/pandoc")
+ ;; '(markdown-command "~/.nix-profile/bin/pandoc")
  '(objed-cursor-color "#C16069")
  '(pdf-view-midnight-colors (cons "#eceff4" "#323334"))
  '(rustic-ansi-faces
