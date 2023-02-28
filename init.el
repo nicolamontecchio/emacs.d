@@ -400,20 +400,6 @@
     (cons 360 "#525252")))
  '(vc-annotate-very-old-color nil))
 
-;;;;;;;;;; testing out
-
-(defun block-to-python ()
-  (interactive)
-  (push-mark)
-  (search-backward "######")
-  (set-mark-command nil)
-  (search-forward "######" nil nil 2)
-  ;; TODO if not found, do this ...
-  ;; (goto-char (point-max))
-  (python-shell-send-region (mark) (point)))
-
-(global-set-key (kbd "C-c C-e") 'block-to-python)
-
 ;; font
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
