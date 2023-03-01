@@ -82,6 +82,13 @@
 ;; enable corfu globally for autocompletion
 (global-corfu-mode)
 
+(defun lsp-or-dumb-jump ()
+  (interactive)
+  (if (bound-and-true-p lsp-mode)
+      (lsp-find-definition)
+    (dumb-jump-go)))
+
+
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
 (tool-bar-mode -1)                                              ;; no toolbar
@@ -112,7 +119,7 @@
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
 (global-set-key (kbd "C-M-o")   'other-window)                  ;; the default cyclical switch, quicker
 (global-set-key (kbd "C-=")     'er/expand-region)              ;; expand region
-(global-set-key (kbd "C-.")     'dumb-jump-go)                  ;; dumb jump to definition
+(global-set-key (kbd "C-.")     'lsp-or-dumb-jump)              ;; lsp jump to definition, or dumb jump
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
