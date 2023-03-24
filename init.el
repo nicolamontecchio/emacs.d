@@ -251,6 +251,7 @@
 
 ;; rust -- remember to have rust-analyzer binary in $PATH
 (setq lsp-rust-server 'rust-analyzer)
+(add-hook 'rust-mode-hook 'yas-reload-if-necessary)
 
 ;; LISPs
 (add-hook 'emacs-lisp-mode-hook                   'paredit-mode)
@@ -379,7 +380,6 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#80A0C2"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#A2BF8A"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#3f3f3f"))
- ;; '(markdown-command "~/.nix-profile/bin/pandoc")
  '(objed-cursor-color "#C16069")
  '(pdf-view-midnight-colors (cons "#eceff4" "#323334"))
  '(rustic-ansi-faces
@@ -405,7 +405,8 @@
     (cons 320 "#5f4749")
     (cons 340 "#525252")
     (cons 360 "#525252")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-types '((comp))))
 
 ;; font
 (custom-set-faces
