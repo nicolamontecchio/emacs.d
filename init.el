@@ -279,6 +279,9 @@
 (setq python-shell-interpreter (expand-file-name "~/miniconda3/bin/ipython")
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
+(add-hook 'python-mode-hook 'lsp-mode)
+;; (setq lsp-diagnostics-provider :none) -- todo do this for python
+
 
 (defun python-cleanup ()
   (interactive)
