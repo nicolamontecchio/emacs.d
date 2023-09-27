@@ -45,6 +45,7 @@
 (straight-use-package 'lsp-ui)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
+(straight-use-package 'material-theme)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'paredit)
@@ -165,12 +166,14 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(ample
+      (setq pretty-themes '(material
+			    doom-nord
 			    doom-opera
 			    ;; doom-spacegrey
 			    ;; doom-peacock
 			    ;; doom-vibrant
 			    ;; sanityinc-tomorrow-eighties
+			    ample
 			    misterioso
 			    flatland whiteboard))
       (defun cycle-pretty-themes ()
@@ -353,18 +356,12 @@
 (add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
 
 
-;; latex
-
-;; (require 'browse-url) ; part of gnu emacs
-(defun lookup-thesaurus ()
+;; show byte offset at point
+(defun show-byte-offset-at-point ()
+  "Report the byte offset (0-indexed) in the file
+corresponding to the position of point."
   (interactive)
-  (let (word)
-    (setq word
-          (if (use-region-p)
-              (buffer-substring-no-properties (region-beginning) (region-end))
-            (current-word)))
-    (setq word (replace-regexp-in-string " " "_" word))
-    (browse-url (concat "https://www.thesaurus.com/browse/" word))))
+  (message "byte offset: %d" (1- (position-bytes (point)))))
 
 
 ;; markdown preview -- NB needs pandoc installed
