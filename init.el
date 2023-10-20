@@ -103,7 +103,7 @@
 (add-hook 'prog-mode-hook 'subword-mode)                        ;; camel-case kill-word
 (display-time-mode 1)
 ;;(wrap-region-global-mode)
-(global-linum-mode t)                                           ;; line numbering on
+(global-display-line-numbers-mode t)                                           ;; line numbering on
 (setq linum-format "%d ")                                       ;; adjust line number column size
 (defalias 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
