@@ -24,6 +24,7 @@
 ;; packages - all installed automatically on first loading
 (straight-use-package 'avy)
 (straight-use-package 'blacken)
+(straight-use-package 'bm)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
@@ -129,9 +130,12 @@
 (global-set-key (kbd "C-z")     'nop)                           ;; do nothing (prevent minimize to dock)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)            ;; open recent file
 (global-set-key (kbd "M-s")     'rg)                            ;; ripgrep search
-(global-set-key (kbd "C-c C-i") 'string-inflection-toggle)      ;; cycle through camelcase etc.
 
-(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
+;; bookmarks shortcuts
+(global-set-key (kbd "H-b")     'bm-toggle)                     ;; toggle bookmark on current line/buffer
+(global-set-key (kbd "H-n")     'bm-next)                       ;; jump to next bookmark
+(global-set-key (kbd "H-p")     'bm-previous)                   ;; jump to previous bookmark
+(setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
 
 
 ;; multiple cursors key bindings
