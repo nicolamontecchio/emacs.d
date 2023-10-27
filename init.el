@@ -44,6 +44,7 @@
 (straight-use-package 'julia-vterm)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
+(straight-use-package 'lsp-pyright)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'material-theme)
