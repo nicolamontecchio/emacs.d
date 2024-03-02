@@ -28,7 +28,6 @@
 (straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
-(straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
@@ -50,6 +49,7 @@
 (straight-use-package 'material-theme)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
+(straight-use-package 'neotree)
 (straight-use-package 'paredit)
 (straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
@@ -113,7 +113,7 @@
 ;; GLOBAL KEY BINDINGS
 (global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
-(global-set-key (kbd "C-M-j")   'direx:jump-to-directory)       ;; tree view of project directory
+(global-set-key (kbd "C-M-j")   'neotree)                       ;; tree view of project directory
 
 (global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
