@@ -139,6 +139,10 @@
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
 
 
+;; make neotree window larger and resizeable
+(setq neo-window-width 60)
+(setq neo-window-fixed-size nil)
+
 ;; multiple cursors key bindings
 (require 'cl)   ;; fix missing equalp symbol
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
