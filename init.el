@@ -112,6 +112,10 @@
 
 ;; GLOBAL KEY BINDINGS
 (global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
+(setq projectile-indexing-method 'native )
+(setq projectile-globally-ignored-file-suffixes '("~") )
+
+
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
 (global-set-key (kbd "C-M-j")   'neotree)                       ;; tree view of project directory
 
@@ -178,13 +182,15 @@
       (setq pretty-themes '(material
 			    doom-nord
 			    doom-opera
+			    misterioso
+			    flatland
+			    whiteboard
 			    ;; doom-spacegrey
 			    ;; doom-peacock
 			    ;; doom-vibrant
 			    ;; sanityinc-tomorrow-eighties
-			    ample
-			    misterioso
-			    flatland whiteboard))
+			    ;; ample
+			    ))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
