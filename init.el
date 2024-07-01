@@ -112,8 +112,8 @@
 
 ;; GLOBAL KEY BINDINGS
 (global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
-(setq projectile-indexing-method 'native )
-(setq projectile-globally-ignored-file-suffixes '("~") )
+(setq projectile-indexing-method 'hybrid )
+(setq projectile-globally-ignored-file-suffixes '("~" "pyc") )
 
 
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
