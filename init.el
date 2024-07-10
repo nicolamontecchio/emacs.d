@@ -137,6 +137,10 @@
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)            ;; open recent file
 (global-set-key (kbd "M-s")     'rg)                            ;; ripgrep search
 
+(global-set-key (kbd "C-c C-b") 'rustic-cargo-build)            ;; cargo build
+(global-set-key (kbd "C-c C-f") 'rustic-cargo-fmt)              ;; cargo format
+
+
 ;; bookmarks shortcuts
 (global-set-key (kbd "H-b")     'bm-toggle)                     ;; toggle bookmark on current line/buffer
 (global-set-key (kbd "H-n")     'bm-next)                       ;; jump to next bookmark
