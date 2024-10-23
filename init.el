@@ -242,12 +242,14 @@
 (setq
  yas-already-loaded nil)
 (defun yas-reload-if-necessary ()
+  (interactive)
   (progn
     (yas-minor-mode)
     (when (not yas-already-loaded)
       (progn
         (yas-reload-all)
         (setq yas-already-loaded 1)))))
+(yas-reload-if-necessary)
 
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 
@@ -303,7 +305,6 @@
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'lsp-mode)
-;; (setq lsp-diagnostics-provider :none) -- todo do this for python
 
 
 (defun python-cleanup ()
