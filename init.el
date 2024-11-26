@@ -50,6 +50,7 @@
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'neotree)
+(straight-use-package 'nix-mode)
 (straight-use-package 'paredit)
 (straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
