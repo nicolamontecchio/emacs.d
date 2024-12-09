@@ -196,11 +196,18 @@
 			    ;; sanityinc-tomorrow-eighties
 			    ;; ample
 			    ))
+      (setq all-themes (custom-available-themes))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
 	(setq linum-format "%3d ") ;; force line number column size
 	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
+      (defun cycle-all-themes ()
+	(interactive)
+	(load-theme (car all-themes) t)
+	(setq linum-format "%3d ") ;; force line number column size
+	(setq all-themes (append (cdr all-themes) (list (car all-themes))))
+      )
       (defadvice load-theme
 	  (before theme-dont-propagate activate)
 	(progn
@@ -224,6 +231,7 @@
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
+      (global-set-key (kbd "H-M-k")     'cycle-all-themes)
 
       ;; other
       (custom-set-faces
