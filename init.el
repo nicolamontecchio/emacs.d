@@ -190,6 +190,7 @@
 			    misterioso
 			    flatland
 			    whiteboard
+			    doom-ayu-mirage
 			    ;; doom-spacegrey
 			    ;; doom-peacock
 			    ;; doom-vibrant
@@ -205,9 +206,9 @@
       (defun cycle-all-themes ()
 	(interactive)
 	(load-theme (car all-themes) t)
+	(message "loaded theme %s" (car all-themes))
 	(setq linum-format "%3d ") ;; force line number column size
-	(setq all-themes (append (cdr all-themes) (list (car all-themes))))
-      )
+	(setq all-themes (append (cdr all-themes) (list (car all-themes)))))
       (defadvice load-theme
 	  (before theme-dont-propagate activate)
 	(progn
