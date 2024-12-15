@@ -191,17 +191,25 @@
 			    misterioso
 			    flatland
 			    whiteboard
+			    doom-ayu-mirage
 			    ;; doom-spacegrey
 			    ;; doom-peacock
 			    ;; doom-vibrant
 			    ;; sanityinc-tomorrow-eighties
 			    ;; ample
 			    ))
+      (setq all-themes (custom-available-themes))
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
 	(setq linum-format "%3d ") ;; force line number column size
 	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
+      (defun cycle-all-themes ()
+	(interactive)
+	(load-theme (car all-themes) t)
+	(message "loaded theme %s" (car all-themes))
+	(setq linum-format "%3d ") ;; force line number column size
+	(setq all-themes (append (cdr all-themes) (list (car all-themes)))))
       (defadvice load-theme
 	  (before theme-dont-propagate activate)
 	(progn
@@ -225,6 +233,7 @@
       (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
+      (global-set-key (kbd "H-M-k")     'cycle-all-themes)
 
       ;; other
       (custom-set-faces
@@ -243,12 +252,14 @@
 (setq
  yas-already-loaded nil)
 (defun yas-reload-if-necessary ()
+  (interactive)
   (progn
     (yas-minor-mode)
     (when (not yas-already-loaded)
       (progn
         (yas-reload-all)
         (setq yas-already-loaded 1)))))
+(yas-reload-if-necessary)
 
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 
@@ -304,7 +315,6 @@
       python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'lsp-mode)
-;; (setq lsp-diagnostics-provider :none) -- todo do this for python
 
 (defun python-cleanup ()
   (interactive)
