@@ -28,6 +28,7 @@
 (straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
+(straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
@@ -93,7 +94,6 @@
       (lsp-find-definition)
     (dumb-jump-go)))
 
-
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
 (tool-bar-mode -1)                                              ;; no toolbar
@@ -148,7 +148,6 @@
 (global-set-key (kbd "H-n")     'bm-next)                       ;; jump to next bookmark
 (global-set-key (kbd "H-p")     'bm-previous)                   ;; jump to previous bookmark
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
-
 
 ;; make neotree window larger and resizeable
 (setq neo-window-width 60)
@@ -306,7 +305,6 @@
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'lsp-mode)
 ;; (setq lsp-diagnostics-provider :none) -- todo do this for python
-
 
 (defun python-cleanup ()
   (interactive)
