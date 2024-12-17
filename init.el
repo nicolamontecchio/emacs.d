@@ -130,6 +130,7 @@
 (global-set-key (kbd "C-=")     'er/expand-region)              ;; expand region
 (global-set-key (kbd "C-.")     'lsp-or-dumb-jump)              ;; lsp jump to definition, or dumb jump
 (global-set-key (kbd "C-,")     'lsp-find-references)
+(global-set-key (kbd "C-c C-.") 'lsp-describe-thing-at-point)   ;; lsp show type of variable under cursor
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
