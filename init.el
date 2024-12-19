@@ -186,7 +186,8 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(material
+      (setq pretty-themes '(doom-henna
+			    material
 			    doom-nord
 			    doom-opera
 			    misterioso
