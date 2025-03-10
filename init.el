@@ -27,7 +27,6 @@
 
 ;; packages - all installed automatically on first loading
 (straight-use-package 'avy)
-(straight-use-package 'blacken)
 (straight-use-package 'bm)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
