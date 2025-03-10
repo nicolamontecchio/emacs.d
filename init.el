@@ -333,14 +333,6 @@
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
 (add-hook 'python-mode-hook 'lsp-mode)
 
-(defun python-cleanup ()
-  (interactive)
-  (progn
-    (blacken-buffer)
-    (shell-command (concat "importchecker " (buffer-file-name)))))
-(global-set-key (kbd "C-c C-y") 'python-cleanup)                          ;; run python formatter
-
-
 ;; web-mode
 (defun my-web-mode-hook ()
   (setq web-mode-markup-indent-offset 2))
