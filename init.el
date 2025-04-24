@@ -177,6 +177,34 @@
 (global-set-key (kbd "C-M-<mouse-1>")   'mc/add-cursor-on-click)
 (global-set-key (kbd "C-c C-l")         'recompile)
 
+(defun get-symbol-under-cursor ()
+  "Select and return the symbol (e.g., variable name) under the cursor."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (if bounds
+        (let ((symbol (buffer-substring-no-properties (car bounds) (cdr bounds))))
+          ;; Visually select it
+          (goto-char (car bounds))
+          (push-mark (cdr bounds) nil t)
+          ;; Return the symbol
+          (message "Symbol: %s" symbol)
+          symbol)
+      (message "No symbol under cursor.")
+      nil)))
+
+(defun insert-string-below (str)
+  "Insert STR on a new line below the current line."
+  (interactive "sInsert string below: ")
+  (end-of-line)
+  (newline-and-indent)
+  (insert str))
+
+(defun python-print-debugging-statement-for-symbol-under-cursor ()
+  (interactive)
+  (insert-string-below (format "print(f\"{%s=}\")" (get-symbol-under-cursor))))
+
+(global-set-key (kbd "C-C p")     'python-print-debugging-statement-for-symbol-under-cursor) ;; print var debugging statement
+
 ;; custom comment toggle function
 (defun toggle-comment-region ()
   "Comments or uncomments the region or the current line if there's no active region."
