@@ -51,7 +51,6 @@
 (straight-use-package 'lsp-pyright)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
-(straight-use-package 'material-theme)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'neotree)
@@ -82,6 +81,7 @@
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 (straight-use-package 'doom-themes)
 (straight-use-package 'flatland-theme)
+(straight-use-package 'material-theme)
 
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
@@ -215,13 +215,13 @@
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 
-;; full screen mode
-(defun toggle-fullscreen ()
-  "Toggle full screen"
-  (interactive)
-  (set-frame-parameter
-   nil 'fullscreen
-   (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+;; ;; full screen mode
+;; (defun toggle-fullscreen ()
+;;   "Toggle full screen"
+;;   (interactive)
+;;   (set-frame-parameter
+;;    nil 'fullscreen
+;;    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
 
 ;; graphic-only keybindings
@@ -307,8 +307,6 @@
 
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 
-
-
 ;; C/C++
 (setq c-default-style "linux" c-basic-offset 2)
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
@@ -354,11 +352,7 @@
 (add-to-list 'auto-mode-alist '("\\.avsc\\'" . json-mode))
 
 ;; ipython
-(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
-(setq python-shell-interpreter (expand-file-name "~/miniconda3/bin/ipython")
-      python-shell-interpreter-args "-i --pylab --simple-prompt")
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
-(add-hook 'python-mode-hook 'lsp-mode)
 
 ;; web-mode
 (defun my-web-mode-hook ()
@@ -367,13 +361,11 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ngt?\\'" . web-mode))
 
-;; scala
-;; formatter
+;; scala formatter
 (defun scalafmt ()
   (interactive)
   (unless (use-region-p) (mark-whole-buffer))
   (shell-command-on-region (mark) (point) "scalafmt --stdin" (current-buffer) t))
-;; scalafmt --stdin
 
 ;; golang
 (add-hook
@@ -473,11 +465,3 @@ corresponding to the position of point."
     (cons 360 "#525252")))
  '(vc-annotate-very-old-color nil)
  '(warning-suppress-types '((comp))))
-
-;; font
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
