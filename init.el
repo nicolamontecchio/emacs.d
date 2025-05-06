@@ -135,7 +135,7 @@
 (global-set-key (kbd "C-M-j")   'neotree)                       ;; tree view of project directory
 
 (global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
-(global-set-key (kbd "M-k")     'kill-this-buffer)              ;; kill current buffer
+(global-set-key (kbd "M-k")     'kill-current-buffer)           ;; kill current buffer
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
 (global-set-key (kbd "C-x o")   'switch-window)                 ;; for when there are more than 2 windows
