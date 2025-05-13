@@ -31,6 +31,7 @@
 (straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
+(straight-use-package 'dape)
 (straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
