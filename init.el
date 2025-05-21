@@ -35,7 +35,7 @@
 (straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
-(straight-use-package 'ellama)
+;; (straight-use-package 'ellama)
 (straight-use-package 'expand-region)
 (straight-use-package 'fill-column-indicator)
 (straight-use-package 'go-mode)
@@ -56,6 +56,7 @@
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'neotree)
 (straight-use-package 'nix-mode)
+(straight-use-package 'ollama-buddy)
 (straight-use-package 'paredit)
 (straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
@@ -98,15 +99,6 @@
   (if (bound-and-true-p lsp-mode)
       (lsp-find-definition)
     (dumb-jump-go)))
-
-(use-package ellama
-  :init
-  (setopt ellama-language "English")
-  (require 'llm-ollama)
-  (ellama-context-header-line-global-mode +1)
-  (setopt ellama-provider
-	  (make-llm-ollama
-	   :chat-model "codellama" :embedding-model "codellama")))
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
@@ -157,7 +149,7 @@
 (global-set-key (kbd "C-c C-b") 'rustic-cargo-build)            ;; cargo build
 (global-set-key (kbd "C-c C-f") 'rustic-cargo-fmt)              ;; cargo format
 
-(global-set-key (kbd "C-c e") 'ellama-transient-main-menu)      ;; ellama menu
+(global-set-key (kbd "H-o")     'ollama-buddy-menu)             ;; ollama menu
 
 ;; bookmarks shortcuts
 (global-set-key (kbd "H-b")     'bm-toggle)                     ;; toggle bookmark on current line/buffer
