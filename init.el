@@ -28,7 +28,6 @@
 ;; packages - all installed automatically on first loading
 (straight-use-package 'avy)
 (straight-use-package 'bm)
-(straight-use-package 'csharp-mode)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
 (straight-use-package 'dape)
