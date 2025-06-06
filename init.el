@@ -99,6 +99,11 @@
       (lsp-find-definition)
     (dumb-jump-go)))
 
+(defun magit-diff-origin-master ()
+  "Show a magit diff between the current HEAD and origin/master."
+  (interactive)
+  (magit-diff-range "origin/master...HEAD"))
+
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
 (tool-bar-mode -1)                                              ;; no toolbar
@@ -206,15 +211,6 @@
         (setq beg (region-beginning) end (region-end))
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
-
-;; ;; full screen mode
-;; (defun toggle-fullscreen ()
-;;   "Toggle full screen"
-;;   (interactive)
-;;   (set-frame-parameter
-;;    nil 'fullscreen
-;;    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
-
 
 ;; graphic-only keybindings
 (if (display-graphic-p)
