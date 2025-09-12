@@ -336,6 +336,12 @@
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e "jq ." (current-buffer) t)))
 
+;; disable background color in vue-mode
+(add-hook
+ 'mmm-mode-hook
+ (lambda ()
+   (set-face-background 'mmm-default-submode-face nil)))
+
 ;; avro schemas (json syntax)
 (add-to-list 'auto-mode-alist '("\\.avsc\\'" . json-mode))
 
