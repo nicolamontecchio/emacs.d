@@ -121,6 +121,7 @@
 (setq linum-format "%d ")                                       ;; adjust line number column size
 (defalias 'yes-or-no-p 'y-or-n-p)
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
+(setq fill-column 100)                                          ;; for M-q (instead of default 70)
 
 ;; GLOBAL KEY BINDINGS
 (global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
@@ -216,7 +217,8 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(doom-henna
+      (setq pretty-themes '(doom-bluloco-dark
+			    doom-henna
 			    material
 			    doom-nord
 			    doom-opera
@@ -320,11 +322,7 @@
 
 ;; LISPs
 (add-hook 'emacs-lisp-mode-hook                   'paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook  'paredit-mode)
-(add-hook 'scheme-mode-hook                       'paredit-mode)
 (add-hook 'clojure-mode-hook                      'paredit-mode)
-(add-hook 'scheme-mode-hook                      'hs-minor-mode)
-(setq scheme-program-name "/usr/local/bin/guile")
 
 ;; javascript
 (setq js-indent-level 2)
