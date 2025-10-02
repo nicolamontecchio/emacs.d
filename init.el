@@ -52,7 +52,7 @@
 (straight-use-package 'markdown-mode)
 (straight-use-package 'mc-extras)
 (straight-use-package 'multiple-cursors)
-(straight-use-package 'neotree)
+(straight-use-package 'treemacs)
 (straight-use-package 'nix-mode)
 (straight-use-package 'ollama-buddy)
 (straight-use-package 'paredit)
@@ -60,7 +60,6 @@
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'rjsx-mode)
 (straight-use-package 'rg)
-(straight-use-package 'rust-mode)
 (straight-use-package 'rustic)
 (straight-use-package 'sbt-mode)
 (straight-use-package 'scala-mode)
@@ -128,7 +127,7 @@
 
 
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
-(global-set-key (kbd "C-M-j")   'neotree)                       ;; tree view of project directory
+(global-set-key (kbd "C-M-j")   'treemacs)                      ;; tree view of project directory
 
 (global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-current-buffer)           ;; kill current buffer
@@ -140,6 +139,7 @@
 (global-set-key (kbd "C-.")     'lsp-or-dumb-jump)              ;; lsp jump to definition, or dumb jump
 (global-set-key (kbd "C-,")     'lsp-find-references)
 (global-set-key (kbd "C-c C-.") 'lsp-describe-thing-at-point)   ;; lsp show type of variable under cursor
+(global-set-key (kbd "H-i")     'lsp-ui-imenu)                  ;; using lsp, tree of all function defs etc. in buffer
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
@@ -159,10 +159,6 @@
 (global-set-key (kbd "H-n")     'bm-next)                       ;; jump to next bookmark
 (global-set-key (kbd "H-p")     'bm-previous)                   ;; jump to previous bookmark
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
-
-;; make neotree window larger and resizeable
-(setq neo-window-width 60)
-(setq neo-window-fixed-size nil)
 
 ;; multiple cursors key bindings
 (require 'cl)   ;; fix missing equalp symbol
