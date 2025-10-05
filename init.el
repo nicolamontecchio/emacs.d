@@ -301,6 +301,9 @@
 ;; org mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
+;; freecad macros (python scripts)
+(add-to-list 'auto-mode-alist '("\\.FCMacro\\'" . python-mode))
+
 ;; haskell
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
