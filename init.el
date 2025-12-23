@@ -212,7 +212,8 @@
 (if (display-graphic-p)
     (progn
       ;; themes
-      (setq pretty-themes '(doom-bluloco-dark
+      (setq pretty-themes '(doom-palenight
+			    doom-bluloco-dark
 			    doom-henna
 			    material
 			    doom-nord
