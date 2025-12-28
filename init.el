@@ -75,12 +75,19 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
 
+(straight-use-package
+ '(copilot :type git
+           :host github
+           :repo "copilot-emacs/copilot.el"))
+
 ;;   - color themes
 (straight-use-package 'ample-theme)
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 (straight-use-package 'doom-themes)
 (straight-use-package 'flatland-theme)
 (straight-use-package 'material-theme)
+
+
 
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
@@ -264,6 +271,8 @@
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
       (global-set-key (kbd "H-M-k")     'cycle-all-themes)
+
+      (global-set-key (kbd "H-M-i")     'copilot-accept-completion)
 
       ;; other
       (custom-set-faces
