@@ -330,7 +330,6 @@
 
 ;; LISPs
 (add-hook 'emacs-lisp-mode-hook                   'paredit-mode)
-(add-hook 'clojure-mode-hook                      'paredit-mode)
 
 ;; javascript
 (setq js-indent-level 2)
@@ -353,6 +352,7 @@
 
 ;; ipython
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
+(add-hook 'python-mode-hook 'lsp)
 
 ;; web-mode
 (defun my-web-mode-hook ()
