@@ -407,7 +407,7 @@
    "\\1\\,(upcase \\2)"))
 
 ;; lilypond
-(setq load-path (append (list "/Applications/LilyPond.app/Contents/Resources/share/emacs/site-lisp") load-path))
+(setq load-path (append (list "/Users/nicola/local/lilypond-2.24.4/share/emacs/site-lisp") load-path))
 (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
 (add-to-list 'auto-mode-alist '("\\.ly$" . LilyPond-mode))
 (add-to-list 'auto-mode-alist '("\\.ily$" . LilyPond-mode))
