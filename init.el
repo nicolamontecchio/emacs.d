@@ -69,6 +69,7 @@
 (straight-use-package 'switch-window)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'toml-mode)
+(straight-use-package 'vterm)
 (straight-use-package 'vue-mode)
 (straight-use-package 'web-mode)
 (straight-use-package 'wgrep)
