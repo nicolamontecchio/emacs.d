@@ -288,6 +288,13 @@
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
+
+(defun vterm-new ()
+  "Create a new vterm buffer (do not reuse the current one)."
+  (interactive)
+  (vterm t))
+(global-set-key (kbd "C-c T") #'vterm-new)
+
 ;; yasnippet helper functions
 (setq
  yas-already-loaded nil)
