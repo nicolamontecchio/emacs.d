@@ -293,7 +293,7 @@
   "Create a new vterm buffer (do not reuse the current one)."
   (interactive)
   (vterm t))
-(global-set-key (kbd "C-c T") #'vterm-new)
+(global-set-key (kbd "C-c t") #'vterm-new)
 
 ;; yasnippet helper functions
 (setq
