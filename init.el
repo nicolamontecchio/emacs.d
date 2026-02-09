@@ -295,6 +295,25 @@
   (vterm t))
 (global-set-key (kbd "C-c t") #'vterm-new)
 
+;; shortcuts for opening claude or gemini in a terminal
+(defun vterm-run-command-silent (command)
+  "Open a new vterm named after COMMAND and execute it."
+  (let ((buffer-name (format "*vterm: %s*" command)))
+    (vterm buffer-name)
+    (vterm-send-string command)
+    (vterm-send-return)))
+(defun vterm-gemini ()
+  "Open a vterm and run gemini."
+  (interactive)
+  (vterm-run-command-silent "gemini"))
+(defun vterm-claude ()
+  "Open a vterm and run claude."
+  (interactive)
+  (vterm-run-command-silent "claude"))
+
+(global-set-key (kbd "C-c g") #'vterm-gemini)
+(global-set-key (kbd "C-c c") #'vterm-claude)
+
 ;; yasnippet helper functions
 (setq
  yas-already-loaded nil)
