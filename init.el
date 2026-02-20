@@ -288,6 +288,14 @@
 (ido-mode 1)                                            ;; IDO
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
+(defun random-theme ()
+  "Activate a random color theme from available themes."
+  (interactive)
+  (let* ((themes (custom-available-themes))
+	 (theme (nth (random (length themes)) themes)))
+    (mapc #'disable-theme custom-enabled-themes)
+    (load-theme theme t)
+    (message "Loaded theme: %s" theme)))
 
 (defun vterm-new ()
   "Create a new vterm buffer (do not reuse the current one)."
