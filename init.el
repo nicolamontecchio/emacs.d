@@ -310,16 +310,16 @@
     (vterm buffer-name)
     (vterm-send-string command)
     (vterm-send-return)))
-(defun vterm-gemini ()
-  "Open a vterm and run gemini."
+(defun vterm-antigravity ()
+  "Open a vterm and run antigravity."
   (interactive)
-  (vterm-run-command-silent "gemini"))
+  (vterm-run-command-silent "agy"))
 (defun vterm-claude ()
   "Open a vterm and run claude."
   (interactive)
   (vterm-run-command-silent "claude"))
 
-(global-set-key (kbd "C-c g") #'vterm-gemini)
+(global-set-key (kbd "C-c g") #'vterm-antigravity)
 (global-set-key (kbd "C-c c") #'vterm-claude)
 
 ;; yasnippet helper functions
