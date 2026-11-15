@@ -166,6 +166,29 @@
 (global-set-key (kbd "H-p")     'bm-previous)                   ;; jump to previous bookmark
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
 
+;; date insertion shortcuts
+(defun day-of-month-ordinal-suffix (day)
+  "Return the English ordinal suffix (st/nd/rd/th) for DAY (1-31)."
+  (if (memq (mod day 100) '(11 12 13))
+      "th"
+    (or (cdr (assq (mod day 10) '((1 . "st") (2 . "nd") (3 . "rd"))))
+        "th")))
+
+(defun insert-date-short ()
+  "Insert the current date as dd.mm.yyyy at point."
+  (interactive)
+  (insert (format-time-string "%d.%m.%Y")))
+
+(defun insert-date-long ()
+  "Insert the current date like: Wednesday, October 3rd, 2024 at point."
+  (interactive)
+  (let ((day (string-to-number (format-time-string "%e"))))
+    (insert (format-time-string (concat "%A, %B " (number-to-string day)
+                                        (day-of-month-ordinal-suffix day) ", %Y")))))
+
+(global-set-key (kbd "H-d")     'insert-date-short)             ;; insert date dd.mm.yyyy
+(global-set-key (kbd "H-D")     'insert-date-long)              ;; insert date Wednesday, October 3rd, 2024
+
 ;; multiple cursors key bindings
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
 (global-set-key (kbd "C-<")             'mc/mark-previous-like-this)
