@@ -521,3 +521,51 @@ corresponding to the position of point."
  (lambda ()
    (global-auto-revert-mode 1)                          ;; automatically reload files when changed
    (display-time-mode 1)))
+
+;; macOS: apps launched from the shell (e.g. `emacs &`) open without
+;; activating (focus-stealing prevention), so the window appears behind
+;; everything.  Raise ourselves to the front once the frame is on-screen,
+;; and retry until it actually sticks (raising too early doesn't stick).
+(when (eq system-type 'darwin)
+  ;; This Emacs build doesn't bind `emacs-pid`, so find our pid via $PPID.
+  (defvar my/emacs-pid
+    (or (and (boundp 'emacs-pid) (symbol-value 'emacs-pid))
+        (let ((process-coding-system-alist nil))
+          (with-temp-buffer
+            (process-file "sh" nil (list (current-buffer) nil) nil
+                          "-c" "echo $PPID")
+            (string-to-number (string-trim (buffer-string))))))
+    "Unix pid of this Emacs process.")
+  (defun my/activate-emacs ()
+    "Bring the Emacs process to the front (macOS only)."
+    (ns-do-applescript
+     (format
+      "tell application \"System Events\" to set frontmost of the first process whose unix id is %d to true"
+      my/emacs-pid)))
+  (defun my/emacs-frontmost-p ()
+    "Return t if this Emacs process is the frontmost application."
+    (let ((process-coding-system-alist nil))
+      (with-temp-buffer
+        (and (zerop (process-file "/usr/bin/osascript" nil
+                                  (list (current-buffer) nil) nil "-e"
+                                  "tell application \"System Events\" to get unix id of first process whose frontmost is true"))
+             (equal (string-trim (buffer-string))
+                    (number-to-string my/emacs-pid))))))
+  (defvar my/activate-attempts 0
+    "How many times we've tried to raise Emacs at startup.")
+  (defun my/activate-emacs-retry (&rest _)
+    (when (and (display-graphic-p) (not (my/emacs-frontmost-p)))
+      (when (< (setq my/activate-attempts (1+ my/activate-attempts)) 5)
+        (my/activate-emacs)
+        (run-at-time 0.4 nil #'my/activate-emacs-retry))))
+  ;; Direct launch: the initial frame exists while init runs, but it only
+  ;; becomes visible at the very end of startup -- defer with a short timer.
+  ;; With a daemon/client, wait for the first frame instead.
+  (if (daemonp)
+      (progn
+        (defun my/activate-emacs-once (frame)
+          (when (display-graphic-p frame)
+            (remove-hook 'after-make-frame-functions #'my/activate-emacs-once)
+            (run-at-time 0.3 nil #'my/activate-emacs-retry)))
+        (add-hook 'after-make-frame-functions #'my/activate-emacs-once))
+    (run-with-timer 0.4 nil #'my/activate-emacs-retry)))
