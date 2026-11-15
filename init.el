@@ -112,20 +112,17 @@
 
 ;; VISUAL ASPECT
 (setq inhibit-splash-screen t)                                  ;; no splash screen
-(tool-bar-mode -1)                                              ;; no toolbar
-(scroll-bar-mode -1)                                            ;; no scroll bar
+;; toolbar / scrollbar / fringes are disabled in early-init.el (avoids a frame redraw)
 (setq mouse-wheel-progressive-speed nil)
 (setq ring-bell-function 'ignore)                               ;; disable bell
-(set-fringe-mode 0)                                             ;; (also here)
 (show-paren-mode 1)                                             ;; show matching parents
 (add-hook 'before-save-hook 'delete-trailing-whitespace)        ;; delete trailing whitespaces on save
 (column-number-mode)                                            ;; display column number in command buf.
 (add-hook 'prog-mode-hook 'subword-mode)                        ;; camel-case kill-word
-(display-time-mode 1)
 ;;(wrap-region-global-mode)
 (global-display-line-numbers-mode t)                                           ;; line numbering on
 (setq linum-format "%d ")                                       ;; adjust line number column size
-(defalias 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)                                      ;; y/n instead of yes/no
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
 (setq fill-column 100)                                          ;; for M-q (instead of default 70)
 
@@ -170,7 +167,6 @@
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
 
 ;; multiple cursors key bindings
-(require 'cl)   ;; fix missing equalp symbol
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
 (global-set-key (kbd "C-<")             'mc/mark-previous-like-this)
 (global-set-key (kbd "C-M-l")           'mc/edit-lines)
@@ -236,7 +232,7 @@
 			    ;; sanityinc-tomorrow-eighties
 			    ;; ample
 			    ))
-      (setq all-themes (custom-available-themes))
+      (setq all-themes nil)
       (defun cycle-pretty-themes ()
 	(interactive)
 	(load-theme (car pretty-themes) t)
@@ -244,17 +240,14 @@
 	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
       (defun cycle-all-themes ()
 	(interactive)
+	(unless all-themes (setq all-themes (custom-available-themes)))
 	(load-theme (car all-themes) t)
 	(message "loaded theme %s" (car all-themes))
 	(setq linum-format "%3d ") ;; force line number column size
 	(setq all-themes (append (cdr all-themes) (list (car all-themes)))))
-      (defadvice load-theme
-	  (before theme-dont-propagate activate)
-	(progn
-	  (mapc #'disable-theme custom-enabled-themes)))
-      ;; default win size
-      (add-to-list 'default-frame-alist '(height . 58))
-      (add-to-list 'default-frame-alist '(width . 120))
+      (advice-add 'load-theme :before
+		  (lambda (&rest _) (mapc #'disable-theme custom-enabled-themes)))
+      ;; default win size: set in early-init.el
       ;; key-bindings for window resizing/navigation
       (global-set-key (kbd "H-<return>")        'toggle-fullscreen)             ;; toggle full screen
       (global-set-key (kbd "H-M-<left>")        'shrink-window-horizontally)    ;; shrink window horizontally
@@ -282,7 +275,6 @@
       (cycle-pretty-themes)))
 
 ;; global-behavior
-(global-auto-revert-mode 1)                             ;; automatically reload files when changed
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)                                            ;; IDO
@@ -323,6 +315,7 @@
 (global-set-key (kbd "C-c c") #'vterm-claude)
 
 ;; yasnippet helper functions
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (setq
  yas-already-loaded nil)
 (defun yas-reload-if-necessary ()
@@ -333,9 +326,6 @@
       (progn
         (yas-reload-all)
         (setq yas-already-loaded 1)))))
-(yas-reload-if-necessary)
-
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 
 ;; C/C++
 (setq c-default-style "linux" c-basic-offset 2)
@@ -500,3 +490,11 @@ corresponding to the position of point."
     (cons 360 "#525252")))
  '(vc-annotate-very-old-color nil)
  '(warning-suppress-types '((comp))))
+
+
+;; non-essential global modes: enable right after the first frame is up
+(run-with-idle-timer
+ 0.5 nil
+ (lambda ()
+   (global-auto-revert-mode 1)                          ;; automatically reload files when changed
+   (display-time-mode 1)))
