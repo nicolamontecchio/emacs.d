@@ -527,30 +527,16 @@ corresponding to the position of point."
 ;; everything.  Raise ourselves to the front once the frame is on-screen,
 ;; and retry until it actually sticks (raising too early doesn't stick).
 (when (eq system-type 'darwin)
-  ;; This Emacs build doesn't bind `emacs-pid`, so find our pid via $PPID.
-  (defvar my/emacs-pid
-    (or (and (boundp 'emacs-pid) (symbol-value 'emacs-pid))
-        (let ((process-coding-system-alist nil))
-          (with-temp-buffer
-            (process-file "sh" nil (list (current-buffer) nil) nil
-                          "-c" "echo $PPID")
-            (string-to-number (string-trim (buffer-string))))))
-    "Unix pid of this Emacs process.")
   (defun my/activate-emacs ()
-    "Bring the Emacs process to the front (macOS only)."
-    (ns-do-applescript
-     (format
-      "tell application \"System Events\" to set frontmost of the first process whose unix id is %d to true"
-      my/emacs-pid)))
+    "Bring the Emacs process to the front (macOS only).
+`x-focus-frame' calls -[NSApp activateIgnoringOtherApps:] directly, so it
+needs no AppleScript / System Events automation permission."
+    (condition-case err
+        (x-focus-frame (selected-frame))
+      (error (message "my/activate-emacs: %s" (error-message-string err)))))
   (defun my/emacs-frontmost-p ()
-    "Return t if this Emacs process is the frontmost application."
-    (let ((process-coding-system-alist nil))
-      (with-temp-buffer
-        (and (zerop (process-file "/usr/bin/osascript" nil
-                                  (list (current-buffer) nil) nil "-e"
-                                  "tell application \"System Events\" to get unix id of first process whose frontmost is true"))
-             (equal (string-trim (buffer-string))
-                    (number-to-string my/emacs-pid))))))
+    "Return t if the selected Emacs frame has input focus."
+    (eq (frame-focus-state (selected-frame)) t))
   (defvar my/activate-attempts 0
     "How many times we've tried to raise Emacs at startup.")
   (defun my/activate-emacs-retry (&rest _)
