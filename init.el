@@ -33,6 +33,8 @@
 (straight-use-package 'corfu)
 (straight-use-package 'dape)
 (straight-use-package 'dockerfile-mode)
+(straight-use-package 'dired-sidebar)
+(straight-use-package 'dired-subtree)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
 (straight-use-package 'exec-path-from-shell)
@@ -43,12 +45,10 @@
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'lsp-pyright)
-(straight-use-package 'lsp-treemacs)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'marginalia)
 (straight-use-package 'multiple-cursors)
-(straight-use-package 'treemacs)
 (straight-use-package 'nix-mode)
 (straight-use-package 'orderless)
 (straight-use-package 'paredit)
@@ -118,7 +118,7 @@
 
 
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
-(global-set-key (kbd "C-M-j")   'treemacs)                      ;; tree view of project directory
+(global-set-key (kbd "C-M-j")   'dired-sidebar-toggle-sidebar)  ;; sidebar tree of project directory
 
 (global-set-key (kbd "M-k")     'kill-current-buffer)           ;; kill current buffer
 (global-set-key (kbd "C-;")     'scroll-down-line)
@@ -129,7 +129,7 @@
 (global-set-key (kbd "C-.")     'lsp-or-dumb-jump)              ;; lsp jump to definition, or dumb jump
 (global-set-key (kbd "C-,")     'lsp-find-references)
 (global-set-key (kbd "C-c C-.") 'lsp-describe-thing-at-point)   ;; lsp show type of variable under cursor
-(global-set-key (kbd "C-c i") 'lsp-treemacs-symbols)          ;; using lsp, tree of all function defs etc. in buffer
+(global-set-key (kbd "C-c i") 'imenu)                         ;; jump to function defs etc. in buffer (lsp-backed)
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
