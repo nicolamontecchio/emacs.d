@@ -76,11 +76,6 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yasnippet)
 
-(straight-use-package
- '(copilot :type git
-           :host github
-           :repo "copilot-emacs/copilot.el"))
-
 ;;   - color themes
 (straight-use-package 'ample-theme)
 (straight-use-package 'color-theme-sanityinc-tomorrow)
@@ -277,10 +272,6 @@
       (global-set-key (kbd "H-M-<right>")       'enlarge-window-horizontally)   ;; enlarge window horizontally
       (global-set-key (kbd "H-M-<down>")        'shrink-window)                 ;; shrink window vertically
       (global-set-key (kbd "H-M-<up>")          'enlarge-window)                ;; enlarge window vertically
-      (global-set-key [H-left]                  'windmove-left)                 ;; move to left windnow
-      (global-set-key [H-right]                 'windmove-right)                ;; move to right window
-      (global-set-key [H-up]                    'windmove-up)                   ;; move to upper window
-      (global-set-key [H-down]                  'windmove-down)                 ;; move to lower window
       ;; other key bindings
       (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
 
@@ -288,8 +279,6 @@
       (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
       (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
       (global-set-key (kbd "H-M-k")     'cycle-all-themes)
-
-      (global-set-key (kbd "H-M-i")     'copilot-accept-completion)
 
       ;; other
       (custom-set-faces
