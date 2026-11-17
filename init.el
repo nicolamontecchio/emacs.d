@@ -235,26 +235,26 @@
       (setq beg (line-beginning-position) end (line-end-position)))
     (comment-or-uncomment-region beg end)))
 
+;; themes
+(setq pretty-themes '(doom-palenight
+		     doom-bluloco-dark
+		     doom-henna
+		     material
+		     doom-nord
+		     doom-opera
+		     misterioso
+		     flatland
+		     whiteboard
+		     doom-ayu-mirage
+		     ;; doom-spacegrey
+		     ;; doom-peacock
+		     ;; doom-vibrant
+		     ;; sanityinc-tomorrow-eighties
+		     ;; ample
+		     ))
 ;; graphic-only keybindings
 (if (display-graphic-p)
     (progn
-      ;; themes
-      (setq pretty-themes '(doom-palenight
-			    doom-bluloco-dark
-			    doom-henna
-			    material
-			    doom-nord
-			    doom-opera
-			    misterioso
-			    flatland
-			    whiteboard
-			    doom-ayu-mirage
-			    ;; doom-spacegrey
-			    ;; doom-peacock
-			    ;; doom-vibrant
-			    ;; sanityinc-tomorrow-eighties
-			    ;; ample
-			    ))
       (setq all-themes nil)
       (defun cycle-pretty-themes ()
 	(interactive)
@@ -295,7 +295,9 @@
       (custom-set-faces
        '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
       ;; (powerline-default-theme)
-      (cycle-pretty-themes)))
+      (cycle-pretty-themes))
+  ;; terminal: load the first theme in the list
+  (load-theme (car pretty-themes) t))
 
 ;; global-behavior
 (setq ido-enable-flex-matching t)
