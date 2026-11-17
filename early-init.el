@@ -38,3 +38,7 @@
 
 (setq inhibit-startup-screen t
       inhibit-startup-echo-area-message user-login-name)
+
+;; native compilation: log third-party compiler warnings to *Warnings* silently
+;; instead of popping up the buffer (they're harmless, from package code)
+(setq native-comp-async-report-warnings-errors 'silent)

@@ -1,3 +1,4 @@
+;;; init.el --- main config -*- lexical-binding: t -*-
 ;; mac: switch meta/hyper key
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'hyper)
@@ -31,43 +32,34 @@
 (straight-use-package 'cmake-mode)
 (straight-use-package 'corfu)
 (straight-use-package 'dape)
-(straight-use-package 'direx)
 (straight-use-package 'dockerfile-mode)
 (straight-use-package 'dumb-jump)
 (straight-use-package 'expand-region)
-(straight-use-package 'fill-column-indicator)
+(straight-use-package 'exec-path-from-shell)
 (straight-use-package 'go-mode)
-(straight-use-package 'groovy-mode)
-(straight-use-package 'haskell-mode)
-(straight-use-package 'hi2)
-(straight-use-package 'highlight-symbol)
+(straight-use-package 'hotfuzz)
 (straight-use-package 'json-mode)
 (straight-use-package 'julia-mode)
-(straight-use-package 'julia-repl)
-(straight-use-package 'julia-vterm)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'lsp-pyright)
 (straight-use-package 'lsp-treemacs)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
-(straight-use-package 'mc-extras)
+(straight-use-package 'marginalia)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'treemacs)
 (straight-use-package 'nix-mode)
-(straight-use-package 'ollama-buddy)
+(straight-use-package 'orderless)
 (straight-use-package 'paredit)
-(straight-use-package 'projectile)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'rjsx-mode)
 (straight-use-package 'rg)
 (straight-use-package 'rustic)
-(straight-use-package 'sbt-mode)
-(straight-use-package 'scala-mode)
 (straight-use-package 'shader-mode)
-(straight-use-package 'smex)
 (straight-use-package 'switch-window)
 (straight-use-package 'typescript-mode)
+(straight-use-package 'vertico)
 (straight-use-package 'toml-mode)
 (straight-use-package 'vterm)
 (straight-use-package 'vue-mode)
@@ -77,19 +69,21 @@
 (straight-use-package 'yasnippet)
 
 ;;   - color themes
-(straight-use-package 'ample-theme)
-(straight-use-package 'color-theme-sanityinc-tomorrow)
 (straight-use-package 'doom-themes)
 (straight-use-package 'flatland-theme)
 (straight-use-package 'material-theme)
 
 
 
+;; use the login shell's PATH (nvm npm, cargo, etc.) -- GUI Emacs launched from
+;; the Dock otherwise only sees the minimal macOS PATH
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 ;; add ~/bin
 (add-to-list 'load-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
-(add-to-list 'exec-path (expand-file-name "~/miniconda3/bin"))
 
 ;; enable corfu globally for autocompletion
 (global-corfu-mode)
@@ -110,27 +104,22 @@
 ;; toolbar / scrollbar / fringes are disabled in early-init.el (avoids a frame redraw)
 (setq mouse-wheel-progressive-speed nil)
 (setq ring-bell-function 'ignore)                               ;; disable bell
-(show-paren-mode 1)                                             ;; show matching parents
 (add-hook 'before-save-hook 'delete-trailing-whitespace)        ;; delete trailing whitespaces on save
 (column-number-mode)                                            ;; display column number in command buf.
 (add-hook 'prog-mode-hook 'subword-mode)                        ;; camel-case kill-word
 ;;(wrap-region-global-mode)
 (global-display-line-numbers-mode t)                                           ;; line numbering on
-(setq linum-format "%d ")                                       ;; adjust line number column size
 (setq use-short-answers t)                                      ;; y/n instead of yes/no
 (add-hook 'prog-mode-hook #'hs-minor-mode)                      ;; hs-minor-mode for all programming modes
-(setq fill-column 100)                                          ;; for M-q (instead of default 70)
+(setq-default fill-column 100)                                        ;; for M-q (instead of default 70)
 
 ;; GLOBAL KEY BINDINGS
-(global-set-key (kbd "C-x C-j") 'projectile-find-file)          ;; find file in project
-(setq projectile-indexing-method 'hybrid )
-(setq projectile-globally-ignored-file-suffixes '("~" "pyc") )
+(global-set-key (kbd "C-x C-j") 'project-find-file)             ;; find file in project (built-in project.el)
 
 
 (global-set-key (kbd "C-M-/")   'toggle-comment-region)         ;; comment code - custom function below
 (global-set-key (kbd "C-M-j")   'treemacs)                      ;; tree view of project directory
 
-(global-set-key (kbd "C-m")     'indent-new-comment-line)       ;; continue w/ comments
 (global-set-key (kbd "M-k")     'kill-current-buffer)           ;; kill current buffer
 (global-set-key (kbd "C-;")     'scroll-down-line)
 (global-set-key (kbd "C-'")     'scroll-up-line)
@@ -140,25 +129,22 @@
 (global-set-key (kbd "C-.")     'lsp-or-dumb-jump)              ;; lsp jump to definition, or dumb jump
 (global-set-key (kbd "C-,")     'lsp-find-references)
 (global-set-key (kbd "C-c C-.") 'lsp-describe-thing-at-point)   ;; lsp show type of variable under cursor
-(global-set-key (kbd "H-i")     'lsp-treemacs-symbols)          ;; using lsp, tree of all function defs etc. in buffer
+(global-set-key (kbd "C-c i") 'lsp-treemacs-symbols)          ;; using lsp, tree of all function defs etc. in buffer
 
 (global-set-key (kbd "M-j")     'avy-goto-word-1)               ;; avy-jump (on word)
 (global-set-key (kbd "C-M-y")   'toggle-truncate-lines)         ;; switch on-off word wrap
 (global-set-key (kbd "C-M-t")   'hs-toggle-hiding)              ;; hide/show block
-(global-set-key (kbd "M-x")     'smex)                          ;; nicer M-x
-(global-set-key (kbd "C-z")     'nop)                           ;; do nothing (prevent minimize to dock)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)            ;; open recent file
 (global-set-key (kbd "M-s")     'rg)                            ;; ripgrep search
 
 (global-set-key (kbd "C-c C-b") 'rustic-cargo-build)            ;; cargo build
 (global-set-key (kbd "C-c C-f") 'rustic-cargo-fmt)              ;; cargo format
 
-(global-set-key (kbd "H-o")     'ollama-buddy-menu)             ;; ollama menu
 
 ;; bookmarks shortcuts
-(global-set-key (kbd "H-b")     'bm-toggle)                     ;; toggle bookmark on current line/buffer
-(global-set-key (kbd "H-n")     'bm-next)                       ;; jump to next bookmark
-(global-set-key (kbd "H-p")     'bm-previous)                   ;; jump to previous bookmark
+(global-set-key (kbd "C-c b") 'bm-toggle)                     ;; toggle bookmark on current line/buffer
+(global-set-key (kbd "C-c ]") 'bm-next)                       ;; jump to next bookmark
+(global-set-key (kbd "C-c [") 'bm-previous)                   ;; jump to previous bookmark
 (setq bm-cycle-all-buffers t)  ;; allow jumping to bookmarks in other buffers
 
 ;; date insertion shortcuts
@@ -181,8 +167,8 @@
     (insert (format-time-string (concat "%A, %B " (number-to-string day)
                                         (day-of-month-ordinal-suffix day) ", %Y")))))
 
-(global-set-key (kbd "H-d")     'insert-date-short)             ;; insert date dd.mm.yyyy
-(global-set-key (kbd "H-D")     'insert-date-long)              ;; insert date Wednesday, October 3rd, 2024
+(global-set-key (kbd "C-c d") 'insert-date-short)             ;; insert date dd.mm.yyyy
+(global-set-key (kbd "C-c D") 'insert-date-long)              ;; insert date Wednesday, October 3rd, 2024
 
 ;; multiple cursors key bindings
 (global-set-key (kbd "C->")             'mc/mark-next-like-this)
@@ -241,57 +227,43 @@
 		     flatland
 		     whiteboard
 		     doom-ayu-mirage
-		     ;; doom-spacegrey
-		     ;; doom-peacock
-		     ;; doom-vibrant
-		     ;; sanityinc-tomorrow-eighties
-		     ;; ample
 		     ))
-;; graphic-only keybindings
-(if (display-graphic-p)
-    (progn
-      (setq all-themes nil)
-      (defun cycle-pretty-themes ()
-	(interactive)
-	(load-theme (car pretty-themes) t)
-	(setq linum-format "%3d ") ;; force line number column size
-	(setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
-      (defun cycle-all-themes ()
-	(interactive)
-	(unless all-themes (setq all-themes (custom-available-themes)))
-	(load-theme (car all-themes) t)
-	(message "loaded theme %s" (car all-themes))
-	(setq linum-format "%3d ") ;; force line number column size
-	(setq all-themes (append (cdr all-themes) (list (car all-themes)))))
-      (advice-add 'load-theme :before
-		  (lambda (&rest _) (mapc #'disable-theme custom-enabled-themes)))
-      ;; default win size: set in early-init.el
-      ;; key-bindings for window resizing/navigation
-      (global-set-key (kbd "H-<return>")        'toggle-fullscreen)             ;; toggle full screen
-      (global-set-key (kbd "H-M-<left>")        'shrink-window-horizontally)    ;; shrink window horizontally
-      (global-set-key (kbd "H-M-<right>")       'enlarge-window-horizontally)   ;; enlarge window horizontally
-      (global-set-key (kbd "H-M-<down>")        'shrink-window)                 ;; shrink window vertically
-      (global-set-key (kbd "H-M-<up>")          'enlarge-window)                ;; enlarge window vertically
-      ;; other key bindings
-      (global-set-key (kbd "H-M-s")     'magit-status)          ;; git status
+;; theme cycling (works in GUI and terminal)
+(setq all-themes nil)
+(defun cycle-pretty-themes ()
+  (interactive)
+  (load-theme (car pretty-themes) t)
+  (setq pretty-themes (append (cdr pretty-themes) (list (car pretty-themes)))))
+(defun cycle-all-themes ()
+  (interactive)
+  (unless all-themes (setq all-themes (custom-available-themes)))
+  (load-theme (car all-themes) t)
+  (message "loaded theme %s" (car all-themes))
+  (setq all-themes (append (cdr all-themes) (list (car all-themes)))))
+(advice-add 'load-theme :before
+            (lambda (&rest _) (mapc #'disable-theme custom-enabled-themes)))
+(global-set-key (kbd "C-c l")     'cycle-pretty-themes)     ;; next pretty theme
+(global-set-key (kbd "C-c L")     'cycle-all-themes)        ;; next theme (all installed)
+(global-set-key (kbd "C-c u")     'browse-url-at-point)     ;; open url under cursor in browser
+(global-set-key (kbd "C-x g")     'magit-status)            ;; git status
+;; window resizing: built-in C-x { / C-x } (width), C-x ^ (taller), C-x - (shrink to fit)
 
-      (global-set-key (kbd "H-M-t")     'hs-toggle-hiding)      ;; toggle show/hide block
-      (global-set-key (kbd "H-M-b")     'browse-url-at-point)   ;; open url under cursor in chrome
-      (global-set-key (kbd "H-M-l")     'cycle-pretty-themes)
-      (global-set-key (kbd "H-M-k")     'cycle-all-themes)
+;; graphic-only settings
+(when (display-graphic-p)
+  (global-set-key (kbd "H-<return>") 'toggle-frame-fullscreen)    ;; toggle full screen
+  (custom-set-faces
+   '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro"))))))
 
-      ;; other
-      (custom-set-faces
-       '(default ((t (:inherit nil :weight medium :height 130 :width normal :family "source code pro")))))
-      ;; (powerline-default-theme)
-      (cycle-pretty-themes))
-  ;; terminal: load the first theme in the list
-  (load-theme (car pretty-themes) t))
-
-;; global-behavior
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)                                            ;; IDO
+;; load the first theme in the list (and rotate it to the back)
+(cycle-pretty-themes)
+;; minibuffer completion: vertical list (vertico), match space-separated pieces
+;; in any order (orderless), annotations next to candidates (marginalia)
+(vertico-mode 1)
+(savehist-mode 1)                                       ;; remember minibuffer history (recent M-x commands first)
+(marginalia-mode 1)
+(setq completion-styles '(orderless basic)
+      completion-category-overrides '((file (styles basic partial-completion))
+                                        (project-file (styles hotfuzz)))) ;; C-x C-j: fuzzy + ranked
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
 (defun random-theme ()
@@ -316,16 +288,11 @@
     (vterm buffer-name)
     (vterm-send-string command)
     (vterm-send-return)))
-(defun vterm-antigravity ()
-  "Open a vterm and run antigravity."
-  (interactive)
-  (vterm-run-command-silent "agy"))
 (defun vterm-claude ()
   "Open a vterm and run claude."
   (interactive)
   (vterm-run-command-silent "claude"))
 
-(global-set-key (kbd "C-c g") #'vterm-antigravity)
 (global-set-key (kbd "C-c c") #'vterm-claude)
 
 ;; yasnippet helper functions
@@ -348,20 +315,9 @@
        (local-set-key (kbd "C-c C-l") 'recompile))
 (add-hook 'c-mode-common-hook 'override-cc-cl)
 
-;; org mode
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; freecad macros (python scripts)
 (add-to-list 'auto-mode-alist '("\\.FCMacro\\'" . python-mode))
-
-;; haskell
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-
-(defun haskellfmt ()
-  (interactive)
-  (unless (use-region-p) (mark-whole-buffer))
-  (shell-command-on-region (mark) (point) "brittany" (current-buffer) t))
 
 ;; rust -- remember to have rust-analyzer binary in $PATH
 (setq lsp-rust-server 'rust-analyzer)
@@ -391,7 +347,18 @@
 
 ;; ipython
 (add-hook 'python-mode-hook 'yas-reload-if-necessary)
-(add-hook 'python-mode-hook 'lsp)
+;; completion is handled by corfu through completion-at-point, not company
+(setq lsp-completion-provider :none)
+;; lsp-mode's lsp-ts-query client crashes on load (breaks every lsp start); skip it
+(with-eval-after-load 'lsp-mode
+  (setq lsp-client-packages (delq 'lsp-ts-query lsp-client-packages)))
+;; bootstrap: install the pyright language server (via npm, into lsp-mode's cache) if missing
+(with-eval-after-load 'lsp-pyright
+  (unless (or (executable-find "pyright-langserver") (ignore-errors (lsp-package-path 'pyright)))
+    (if (executable-find "npm")
+        (lsp-install-server nil 'pyright)
+      (message "pyright not installed and npm not found; install Node, then M-x lsp-install-server RET pyright"))))
+(add-hook 'python-mode-hook #'lsp-deferred)
 
 ;; web-mode
 (defun my-web-mode-hook ()
@@ -400,44 +367,32 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ngt?\\'" . web-mode))
 
-;; scala formatter
-(defun scalafmt ()
-  (interactive)
-  (unless (use-region-p) (mark-whole-buffer))
-  (shell-command-on-region (mark) (point) "scalafmt --stdin" (current-buffer) t))
-
 ;; golang
 (add-hook
  'go-mode-hook
  (lambda ()
-   (add-hook 'before-save-hook 'gofmt-before-save)
+   (add-hook 'before-save-hook #'gofmt-before-save nil t) ;; buffer-local
    (setq tab-width 2)
    (setq indent-tabs-mode 1)
-   (lsp)))
+   (lsp-deferred)))
 
 ;; csharp
 (defun csharp-stuff ()
   (electric-pair-local-mode 1) ;; Emacs 25
   (setq c-basic-offset 4)
-  (setq-default indent-tabs-mode nil) ;; no tabs
+  (setq indent-tabs-mode nil) ;; no tabs (this buffer only)
   ;; (setq tab-width 4)
   )
 (add-hook 'csharp-mode-hook 'csharp-stuff)
-
-;; julia
-(add-hook 'julia-mode-hook 'julia-repl-mode) ;; always use minor mode
-;; (add-hook 'julia-mode-hook #'julia-vterm-mode)  ;; testing out new minor mode
 
 ;; xml indent w/ 4 spaces
 (setq nxml-child-indent 4 nxml-attribute-indent 4)
 
 ;; miscellanea
-(setq tramp-use-ssh-controlmaster-options nil)                                                  ;; fix tramp without breaking ghc-mod
-(put 'temporary-file-directory 'standard-value '((file-name-as-directory "~/tmp/tramp")))       ;; tramp path
 (put 'erase-buffer 'disabled nil)
 
-(setq fci-rule-column 80)
-(setq magit-last-seen-setup-instructions "1.4.0")
+(setq-default display-fill-column-indicator-column 80)
+(global-display-fill-column-indicator-mode 1)
 
 (defun camelcase ()
   (interactive)
@@ -446,7 +401,9 @@
    "\\1\\,(upcase \\2)"))
 
 ;; lilypond
-(setq load-path (append (list "/Users/nicola/local/lilypond-2.24.4/share/emacs/site-lisp") load-path))
+;; uses whichever ~/local/lilypond-* install exists (lilypond-mode ships with LilyPond)
+(dolist (dir (file-expand-wildcards "~/local/lilypond-*/share/emacs/site-lisp"))
+  (add-to-list 'load-path dir))
 (autoload 'LilyPond-mode "lilypond-mode" "LilyPond Editing Mode" t)
 (add-to-list 'auto-mode-alist '("\\.ly$" . LilyPond-mode))
 (add-to-list 'auto-mode-alist '("\\.ily$" . LilyPond-mode))
@@ -462,48 +419,9 @@ corresponding to the position of point."
 
 
 ;; markdown preview -- NB needs pandoc installed
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#323334" "#C16069" "#A2BF8A" "#ECCC87" "#80A0C2" "#B58DAE" "#86C0D1" "#eceff4"])
- '(custom-safe-themes
-   '("0d01e1e300fcafa34ba35d5cf0a21b3b23bc4053d388e352ae6a901994597ab1" default))
- '(exwm-floating-border-color "#181818")
- '(fci-rule-color "#525252")
- '(highlight-tail-colors ((("#3d413c") . 0) (("#3a4143") . 20)))
- '(jdee-db-active-breakpoint-face-colors (cons "#000000" "#80A0C2"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#000000" "#A2BF8A"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#000000" "#3f3f3f"))
- '(objed-cursor-color "#C16069")
- '(pdf-view-midnight-colors (cons "#eceff4" "#323334"))
- '(rustic-ansi-faces
-   ["#323334" "#C16069" "#A2BF8A" "#ECCC87" "#80A0C2" "#B58DAE" "#86C0D1" "#eceff4"])
- '(vc-annotate-background "#323334")
- '(vc-annotate-color-map
-   (list
-    (cons 20 "#A2BF8A")
-    (cons 40 "#bac389")
-    (cons 60 "#d3c788")
-    (cons 80 "#ECCC87")
-    (cons 100 "#e3b57e")
-    (cons 120 "#da9e75")
-    (cons 140 "#D2876D")
-    (cons 160 "#c88982")
-    (cons 180 "#be8b98")
-    (cons 200 "#B58DAE")
-    (cons 220 "#b97e97")
-    (cons 240 "#bd6f80")
-    (cons 260 "#C16069")
-    (cons 280 "#a0575e")
-    (cons 300 "#804f54")
-    (cons 320 "#5f4749")
-    (cons 340 "#525252")
-    (cons 360 "#525252")))
- '(vc-annotate-very-old-color nil)
- '(warning-suppress-types '((comp))))
+;; keep Customize output out of init.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file t t)
 
 
 ;; non-essential global modes: enable right after the first frame is up
