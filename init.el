@@ -263,7 +263,8 @@
 (marginalia-mode 1)
 (setq completion-styles '(orderless basic)
       completion-category-overrides '((file (styles basic partial-completion))
-                                        (project-file (styles hotfuzz)))) ;; C-x C-j: fuzzy + ranked
+                                        (project-file (styles hotfuzz))   ;; C-x C-j: fuzzy + ranked
+                                        (command (styles hotfuzz)))) ;; M-x: same fuzzy + ranked matching
 (define-key global-map (kbd "RET") 'newline-and-indent) ;; auto indentation
 
 (defun random-theme ()
